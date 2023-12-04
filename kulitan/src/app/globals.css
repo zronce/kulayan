@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+	font-family: "kulitan";
+	src: url("../../public/fonts/kulitan-font.otf");
+}
+
+:root {
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
+}
+
+body {
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+			to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))
+		)
+		rgb(var(--background-start-rgb));
+}
+
+.transcribe-bg {
+	background-image: url("../shared/images/transcribe-bg.png");
+}
+
+.text-shadow {
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.text-stroke {
+	stroke: white;
+}
+
+.horizontal-textarea {
+	border: 1px solid #ccc;
+	width: 100%; /* Adjust the width as needed */
+	min-height: 8em;
+	padding: 8px;
+	font-family: Arial, sans-serif;
+	overflow: auto;
+	white-space: nowrap; /* Prevent text from wrapping to the next line */
+	direction: rtl; /* Right-to-left text direction */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #001C30;
+  border-radius: 100vh;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #001C30;
+}
+
+/* Apply CSS Reset for Resetting Default Margin/Padding */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  /* Style the Body Element */
+  body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+  }
+  
+  /* Style the Title Headers */
+  .title {
+	text-align: center;
+	margin-top: 20px;
+	color: #333;
+  }
+  
+  /* Style the Container for Buttons */
+  .container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 4 columns, auto-fill */
+	gap: 10px;
+	justify-content: center;
+	margin: 20px auto;
+	max-width: 800px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style the Styled Buttons */
+  .styled-button {
+	background-color: #007BFF;
+	color: #fff;
+	border: none;
+	padding: 10px 15px;
+	font-size: 20px; /* Increase font size for button text */
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+  }
+  
+  .styled-button:hover {
+	background-color: #0056b3;
+  }
+  
+  /* Style the Font-Kulitan */
+  .font-kulitan {
+	font-size: 24px; /* Increase font size for font-kulitan text */
+  }
+  
+  /* Add Media Query for Responsiveness */
+  @media screen and (max-width: 768px) {
+	.container {
+	  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust column width for smaller screens */
+	}
+  }
+  
+
+/*title*/
+.title {
+	color: #ffffff;
+	text-align: center;
+  }
+
+
+
+
+.quiz {
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+
+.qzbtn {
+    background-color: #001C30;
+    color: white; 
+    padding: 50px 80px;
+    border: 5px solid #ffffff; 
+    border-radius: 50px;
+    cursor: pointer;
+    background-size: cover; 
+    background-position: center; 
+    transition: background-color 0.3s ease, border-color 0.3s ease; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    background-image: linear-gradient(to top, #001C30, transparent); /* Gradient from bottom to top */
+}
+
+/* Hover effect */
+.qzbtn:hover {
+    background-color: #adb4bb; 
+    border-color: #ffffff; 
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom, #0056b3, transparent); /* Gradient from top to bottom on hover */
+}
+
+.object-detection-wrapper {
+	position: relative;
+	max-width: 640px; /* Set a max-width if needed */
+	margin: auto;
+  }
+  
+  .video-canvas-wrapper {
+	position: relative;
+  }
+  
+  .detection-video {
+	width: 100%;
+	height: auto; /* Maintain aspect ratio */
+  }
+  
+  .detection-canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+  
