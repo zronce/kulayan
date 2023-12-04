@@ -5,7 +5,7 @@ The "Kulitan Transcribe" app is a powerful and user-friendly tool designed to br
 
 ## 🔗 Links
 
-- Client :: https://kulitan.vercel.app/
+- Client ::
 
 ![image](https://github.com/impaulintech/kulitan/assets/93037350/63c9d27b-916e-4c02-8971-939d9067137d)
 

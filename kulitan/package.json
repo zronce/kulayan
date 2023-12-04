@@ -14,6 +14,7 @@
     "@capacitor/core": "^5.3.0",
     "@headlessui/react": "^1.7.17",
     "@next/font": "^13.4.19",
+    "@teachablemachine/image": "^0.8.5",
     "@tensorflow-models/coco-ssd": "^2.2.3",
     "@tensorflow-models/knn-classifier": "^1.2.6",
     "@tensorflow-models/mobilenet": "^2.1.1",
