@@ -103,5 +103,4 @@ export default function ObjectDetection() {
       )}
     </div>
   );
-  
 }
