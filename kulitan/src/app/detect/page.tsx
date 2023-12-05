@@ -91,16 +91,17 @@ export default function ObjectDetection() {
     <div className="object-detection-wrapper">
       <h1>Real-Time Object Detection</h1>
       {modelLoaded ? (
-        <div className="video-canvas-wrapper">
+        <div className="video-canvas-container">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
         </div>
       ) : (
         <div className="loading-bar">
-          <p>Loading model...</p>
-          {/* Loading spinner or progress bar */}
+          <p className="loading-message">Loading model...</p>
+          <div className="loading-spinner"></div>
         </div>
       )}
     </div>
   );
+  
 }
