@@ -270,4 +270,12 @@ body {
 	left: 0;
   }
   
+  .probability {
+	position: absolute; /* Position the probability element relative to its closest positioned ancestor, which is the container */
+	bottom: 0; /* Position it at the bottom of the container */
+	left: 0; /* Position it at the left side of the container */
+	background-color: rgba(9, 9, 9, 0.8); /* Add a background color for readability */
+	padding: 5px; /* Add padding for spacing */
+	font-size: 14px; /* Adjust the font size as needed */
+  }
   
