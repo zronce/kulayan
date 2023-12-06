@@ -8,6 +8,8 @@ export default function ObjectDetection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
+  const [probability, setProbability] = useState<number | null>(null);
+  const [className, setClassName] = useState<string | null>(null); // Added state for class name
 
   useEffect(() => {
     // Load the Teachable Machine model
@@ -25,7 +27,7 @@ export default function ObjectDetection() {
     };
 
     loadModel();
-  }, );
+  }, []);
 
   const detectObjects = async (model: tmImage.CustomMobileNet) => {
     if (videoRef.current && canvasRef.current) {
@@ -54,13 +56,17 @@ export default function ObjectDetection() {
                 );
 
                 // Display the class with the highest probability
-                ctx.font = "16px Arial";
+                ctx.font = "20px Arial";
                 ctx.fillStyle = "red";
                 ctx.fillText(
                   `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
                   10,
                   25
                 );
+
+                // Set the probability and class name states
+                setProbability(maxPrediction.probability);
+                setClassName(maxPrediction.className);
 
                 requestAnimationFrame(detectFrame);
               }
@@ -91,14 +97,20 @@ export default function ObjectDetection() {
     <div className="object-detection-wrapper">
       <h1>Real-Time Object Detection</h1>
       {modelLoaded ? (
-        <div className="video-canvas-wrapper">
+        <div className="video-canvas-container">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
+          {probability !== null && (
+            <div>
+              <p className="probability">Detected: ({Math.round(probability * 100)}%) {className}</p>
+
+            </div>
+          )}
         </div>
       ) : (
         <div className="loading-bar">
-          <p>Loading model...</p>
-          {/* Loading spinner or progress bar */}
+          <p className="loading-message">Loading model...</p>
+          <div className="loading-spinner"></div>
         </div>
       )}
     </div>
