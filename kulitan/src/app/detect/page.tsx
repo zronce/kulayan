@@ -58,8 +58,8 @@ export default function ObjectDetection() {
                 ctx.fillStyle = "white";
                 ctx.fillText(
                   `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
-                  10,
-                  25
+                  25,
+                  50
                 );
 
                 requestAnimationFrame(detectFrame);
@@ -89,7 +89,8 @@ export default function ObjectDetection() {
 
   return (
     <div className="object-detection-wrapper">
-      <h1>Real-Time Detection</h1>
+      <br></br>
+      <h1 className="Label1">Real-Time Detection</h1>
       {modelLoaded ? (
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
