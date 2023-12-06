@@ -235,47 +235,61 @@ body {
   }
   
   /* Add CSS styles to center the loading UI */
-  .object-detection-wrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
-	background-color: #151515;
+  
+  body {
+	margin: 0;
+	overflow: hidden; /* Prevent default body margin and hide overflow */
   }
   
-  .video-canvas-container {
+  .object-detection-wrapper {
+	width: 100vw; /* 100% of viewport width */
+	height: 100vh; /* 100% of viewport height */
 	display: flex;
 	flex-direction: column;
-	align-items: center;
 	justify-content: center;
-	height: 60vh; /* Adjust the height as needed */
+	align-items: center;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 10px;
+	background-color: #090909; /* Add your desired background color */
+  }
+  
+  .object-detection-wrapper h1 {
+	text-align: center;
+	margin-bottom: 20px;
+  }
+  
+  .video-canvas-wrapper {
 	position: relative;
+	width: 100%;
+	height: 100%;
 	overflow: hidden;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+	border-radius: 10px;
   }
   
   .detection-video {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+	border-radius: 10px;
   }
   
   .detection-canvas {
-	max-width: 100%;
-	max-height: 100%;
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
   }
   
-  .probability {
-	position: absolute; /* Position the probability element relative to its closest positioned ancestor, which is the container */
-	bottom: 0; /* Position it at the bottom of the container */
-	left: 0; /* Position it at the left side of the container */
-	background-color: rgba(9, 9, 9, 0.8); /* Add a background color for readability */
-	padding: 5px; /* Add padding for spacing */
-	font-size: 14px; /* Adjust the font size as needed */
+  .loading-bar {
+	text-align: center;
   }
+  
+  .loading-bar p {
+	margin: 0;
+  }
+  
+  
   
