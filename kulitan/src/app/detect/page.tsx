@@ -99,9 +99,10 @@ export default function ObjectDetection() {
         
       ) : (
         <div className="loading-bar">
-          <p>Loading model...</p>
-          {/* Loading spinner or progress bar */}
-        </div>
+  <p>Loading model...</p>
+  <div className="loading-spinner"></div>
+</div>
+
       )}
     </div>
   );
