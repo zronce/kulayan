@@ -89,7 +89,7 @@ export default function ObjectDetection() {
 
   return (
     <div className="object-detection-wrapper">
-      <h1>Real-Time Object Detection</h1>
+      <h1>Real-Time Detection</h1>
       {modelLoaded ? (
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
