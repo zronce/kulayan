@@ -103,7 +103,6 @@ export default function ObjectDetection() {
           {probability !== null && (
             <div>
               <p className="probability">Detected: ({Math.round(probability * 100)}%) {className}</p>
-            
             </div>
           )}
         </div>
