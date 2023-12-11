@@ -52,7 +52,7 @@ export default function Home() {
 						width={60}
 						height={100}
 					/>
-					<p className="h-[30%] pt-2 text-shadow">kapampangan</p>
+					<p className="h-[30%] pt-2 text-shadow">Kapampangan</p>
 				</Card>
 				<Card
 					link="reading"
@@ -74,7 +74,7 @@ export default function Home() {
 					link="writing"
 					buttonTitle={
 						<>
-							Writing | <span className="font-kulitan">pa g su la t</span>
+							Writing | <span className="font-kulitan">pag su lat</span>
 						</>
 					}
 				>

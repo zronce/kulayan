@@ -4,10 +4,13 @@ import React, { useRef, useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as tmImage from "@teachablemachine/image";
 
+
 export default function ObjectDetection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
+  const imageResultRef = useRef<HTMLDivElement | null>(null);
+  
 
   useEffect(() => {
     // Load the Teachable Machine model
@@ -26,6 +29,70 @@ export default function ObjectDetection() {
 
     loadModel();
   }, );
+  
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+  
+    if (file) {
+      try {
+        const modelURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/model.json";
+        const metadataURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/metadata.json";
+        const model = await tmImage.load(modelURL, metadataURL);
+  
+        // Create an image element to display the uploaded image
+        const image = new Image();
+        image.src = URL.createObjectURL(file);
+        image.onload = async () => {
+          // Perform detection on the uploaded image
+          const predictions = await model.predict(image);
+  
+          // Display the results
+          displayImageAndResults(image, predictions);
+        };
+        
+      } catch (error) {
+        console.error("Error handling image upload:", error);
+      }
+    }
+  };
+  
+  const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
+    if (canvasRef.current && imageResultRef.current) {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+
+      if (ctx) {
+        // Resize the canvas based on the image's dimensions
+        canvas.width = image.width;
+        canvas.height = image.height;
+
+        // Draw the uploaded image on the canvas
+        ctx.drawImage(image, 0, 0, image.width, image.height);
+
+        if (predictions.length > 0) {
+          // Display the class with the highest probability
+          const maxPrediction = predictions.reduce((max, prediction) =>
+            prediction.probability > max.probability ? prediction : max
+          );
+
+          ctx.font = "25px Arial";
+          ctx.fillStyle = "white";
+          ctx.fillText(
+            `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
+            25,
+            50
+          );
+
+          // Display image result below the canvas
+          const imageResult = imageResultRef.current;
+          imageResult.innerHTML = `
+            <p>Detected: ${maxPrediction.className}</p>
+            <p>Probability: ${Math.round(maxPrediction.probability * 100)}%</p>
+          `;
+        }
+      }
+    }
+  };
 
   const detectObjects = async (model: tmImage.CustomMobileNet) => {
     if (videoRef.current && canvasRef.current) {
@@ -86,24 +153,27 @@ export default function ObjectDetection() {
     canvas.width = videoWidth * scale;
     canvas.height = videoHeight * scale;
   };
+  
 
   return (
     <div className="object-detection-wrapper">
       <br></br>
       <h1 className="Label1">Real-Time Detection</h1>
+      <br></br>
+      <input type="file" accept="image/*" onChange={handleImageUpload} />
+
+      <div ref={imageResultRef} className="image-result"></div>
+
       {modelLoaded ? (
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
-          
         </div>
-        
       ) : (
         <div className="loading-bar">
-  <p>Loading model...</p>
-  <div className="loading-spinner"></div>
-</div>
-
+          <p>Loading Model...</p>
+          <div className="loading-spinner"></div>
+        </div>
       )}
     </div>
   );
