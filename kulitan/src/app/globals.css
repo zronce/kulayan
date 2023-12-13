@@ -188,14 +188,14 @@ body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.5em;
 	color: #fff;
-	background-color: #336699;
+	background-color: #001C30;;
 	text-align: center;
 	margin-bottom: 20px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	padding: 10px 20px;
 	border-radius: 15px;
-	max-width: 600px; /* Set a maximum width for the element */
+	max-width: 500px; /* Set a maximum width for the element */
 	margin: 0 auto; /* Center the element by setting margin-left and margin-right to auto */
 	/* You can add more styles as needed */
   }
@@ -206,24 +206,25 @@ body {
 	position: relative;
 	max-width: 640px;
 	margin: auto;
-	background-color: #1d1b1b;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	
-	overflow: hidden;
-	height: 100vh; /* 100% of the viewport height */
+	overflow-y: scroll hidden;
+	height: 160vh; /* 100% of the viewport height */
   }
   
   /* Video Canvas Wrapper with Margin */
   .video-canvas-wrapper {
 	position: relative;
 	margin: 20px; /* Adjust the margin value as needed */
+	background-color: #001C30;;
+	border: 10px solid #001C30;;
+	border-radius: 50px;
   }
   
   /* Detection Video */
   .detection-video {
 	width: 100%;
 	height: auto;
-	border-radius: 8px 8px 8px 8px; /* Rounded corners at the top */
+	 /* Rounded corners at the top */
+	 border-radius: 45px;
   }
   
   /* Detection Canvas */
@@ -261,11 +262,54 @@ body {
   /* Style for the loading spinner */
   .loading-spinner {
 	border: 4px solid #f3f3f3;
-	border-top: 4px solid #3498db;
+	border-top: 4px solid #011320;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
 	animation: spin 1s linear infinite; /* Apply the spin animation */
   }
   
+  .file-upload{
+	background-color: #001C30;
+	border: 5px solid #001C30;
+	border-radius: 50px;
+	padding: 2px;
+	font-size: 15px;
+  }
+
+  .file-upload::-webkit-file-upload-button{
+	background-image: linear-gradient(45deg, indigo, pink);
+	color: #f2f2f2;
+	padding: 8px 16px;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+  }
+
+  .image-preview {
+	background-color: #fff;
+	border-radius: 10px; /* Rounded corners */
+	margin: 10px; /* Margin around the square */
+	width: 100px; /* Adjust the width of the square as needed */
+	height: 100px; /* Adjust the height of the square as needed */
+	border: 5px solid #ffffff; /* Border with 5px width and black color */
+	/* Additional styles */
+  }
+
+  .imgcenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	 /* Optional: You can set a specific height for the container */
+  }
   
+  .deletebtn{
+	margin: 10px;
+	background-color: rgb(255, 106, 106);
+	border-radius: 10px;
+	width: 50px;
+  }
+
+  .deletebtn:hover{
+	background-color: #001C30;
+  }

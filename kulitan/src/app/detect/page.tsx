@@ -3,14 +3,14 @@
 import React, { useRef, useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as tmImage from "@teachablemachine/image";
-
+import NextImage from 'next/image';
 
 export default function ObjectDetection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
   const imageResultRef = useRef<HTMLDivElement | null>(null);
-  
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     // Load the Teachable Machine model
@@ -30,32 +30,43 @@ export default function ObjectDetection() {
     loadModel();
   }, );
   
+  //For uploading image
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-  
+
     if (file) {
       try {
         const modelURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/model.json";
         const metadataURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/metadata.json";
         const model = await tmImage.load(modelURL, metadataURL);
-  
+
         // Create an image element to display the uploaded image
         const image = new Image();
         image.src = URL.createObjectURL(file);
         image.onload = async () => {
+          // Display the selected image
+          setSelectedImage(URL.createObjectURL(file));
+
           // Perform detection on the uploaded image
           const predictions = await model.predict(image);
-  
+
           // Display the results
           displayImageAndResults(image, predictions);
         };
-        
       } catch (error) {
         console.error("Error handling image upload:", error);
       }
     }
   };
+  const handleDeleteImage = () => {
+    setSelectedImage(null);
+    if (imageResultRef.current) {
+      imageResultRef.current.innerHTML = "";
+    }
+    // You can also add code here to clear any related state or perform other actions.
+  };
   
+  //Display Image result
   const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
     if (canvasRef.current && imageResultRef.current) {
       const canvas = canvasRef.current;
@@ -122,7 +133,7 @@ export default function ObjectDetection() {
 
                 // Display the class with the highest probability
                 ctx.font = "25px Arial";
-                ctx.fillStyle = "white";
+                ctx.fillStyle = "red";
                 ctx.fillText(
                   `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
                   25,
@@ -156,25 +167,48 @@ export default function ObjectDetection() {
   
 
   return (
+    
     <div className="object-detection-wrapper">
       <br></br>
       <h1 className="Label1">Real-Time Detection</h1>
       <br></br>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
+      <div className="file-container">
+          <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
+          <br></br>
+          <button className="deletebtn" onClick={handleDeleteImage}>Close</button>
+
+        <div className="imgcenter">
+            {/* Display the selected image using <Image /> */}
+              {selectedImage && (
+               <div className="image-preview">
+                 <NextImage
+                    src={selectedImage}
+                    alt="Selected"
+                    width={150} // Adjust the width and height as needed
+                    height={150}
+                 />
+               </div>
+              )}
+        </div> 
+      </div>
 
       <div ref={imageResultRef} className="image-result"></div>
-
       {modelLoaded ? (
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
         </div>
+        
       ) : (
         <div className="loading-bar">
           <p>Loading Model...</p>
           <div className="loading-spinner"></div>
         </div>
+        
       )}
+
     </div>
+    
   );
+  
 }
