@@ -286,22 +286,7 @@ body {
 	cursor: pointer;
   }
 
-  .image-preview {
-	background-color: #fff;
-	border-radius: 10px; /* Rounded corners */
-	margin: 10px; /* Margin around the square */
-	width: 100px; /* Adjust the width of the square as needed */
-	height: 100px; /* Adjust the height of the square as needed */
-	border: 5px solid #ffffff; /* Border with 5px width and black color */
-	/* Additional styles */
-  }
-
-  .imgcenter {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	 /* Optional: You can set a specific height for the container */
-  }
+  
   
   .deletebtn{
 	margin: 10px;

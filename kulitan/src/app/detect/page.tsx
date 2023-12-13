@@ -67,25 +67,28 @@ export default function ObjectDetection() {
   };
   
   //Display Image result
-  const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
-    if (canvasRef.current && imageResultRef.current) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext("2d");
+const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
+  if (canvasRef.current && imageResultRef.current) {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
 
-      if (ctx) {
-        // Resize the canvas based on the image's dimensions
-        canvas.width = image.width;
-        canvas.height = image.height;
+    if (ctx) {
+      // Resize the canvas based on the image's dimensions
+      canvas.width = image.width;
+      canvas.height = image.height;
 
-        // Draw the uploaded image on the canvas
-        ctx.drawImage(image, 0, 0, image.width, image.height);
+      if (predictions.length > 0) {
+        // Display the class with the highest probability
+        const maxPrediction = predictions.reduce((max, prediction) =>
+          prediction.probability > max.probability ? prediction : max
+        );
 
-        if (predictions.length > 0) {
+        // Display image result below the canvas
+        const imageResult = imageResultRef.current;
+
+        if (maxPrediction.probability >= 0.7) {
           // Display the class with the highest probability
-          const maxPrediction = predictions.reduce((max, prediction) =>
-            prediction.probability > max.probability ? prediction : max
-          );
-
+          ctx.drawImage(image, 0, 0, image.width, image.height);
           ctx.font = "25px Arial";
           ctx.fillStyle = "white";
           ctx.fillText(
@@ -94,64 +97,75 @@ export default function ObjectDetection() {
             50
           );
 
-          // Display image result below the canvas
-          const imageResult = imageResultRef.current;
+          // Display detected class and probability as before
           imageResult.innerHTML = `
             <p>Detected: ${maxPrediction.className}</p>
             <p>Probability: ${Math.round(maxPrediction.probability * 100)}%</p>
           `;
+        } else {
+          // Replace the content with "Not a Glyph" when the probability is below 70%
+          imageResult.innerHTML = '<p>Detected: Not a Kulitan Glyph</p>';
         }
       }
     }
-  };
+  }
+};
 
-  const detectObjects = async (model: tmImage.CustomMobileNet) => {
-    if (videoRef.current && canvasRef.current) {
-      const video = videoRef.current;
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext("2d");
+const detectObjects = async (model: tmImage.CustomMobileNet) => {
+  if (videoRef.current && canvasRef.current) {
+    const video = videoRef.current;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
 
-      if (ctx) {
-        try {
-          // Access the device's main camera (rear camera)
-          const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
-          video.srcObject = stream;
+    if (ctx) {
+      try {
+        // Access the device's main camera (rear camera)
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        video.srcObject = stream;
 
-          video.onloadedmetadata = () => {
-            video.play();
-            resizeCanvas(video, canvas);
+        video.onloadedmetadata = () => {
+          video.play();
+          resizeCanvas(video, canvas);
 
-            const detectFrame = async () => {
-              if (videoRef.current) {
-                const predictions = await model.predict(videoRef.current);
+          const detectFrame = async () => {
+            if (videoRef.current) {
+              const predictions = await model.predict(videoRef.current);
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+              // Find the class with the highest probability
+              const maxPrediction = predictions.reduce((max, prediction) =>
+                prediction.probability > max.probability ? prediction : max
+              );
+
+              // Display the class with the highest probability
+              ctx.font = "25px Arial";
+              ctx.fillStyle = "red";
+              ctx.fillText(
+                `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
+                25,
+                50
+              );
+
+              // Display "Not a Glyph" when the probability is below 70%
+              if (maxPrediction.probability < 0.7) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Find the class with the highest probability
-                const maxPrediction = predictions.reduce((max, prediction) =>
-                  prediction.probability > max.probability ? prediction : max
-                );
-
-                // Display the class with the highest probability
                 ctx.font = "25px Arial";
                 ctx.fillStyle = "red";
-                ctx.fillText(
-                  `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
-                  25,
-                  50
-                );
-
-                requestAnimationFrame(detectFrame);
+                ctx.fillText("Not a Kulitan Glyph", 25, 50);
               }
-            };
 
-            detectFrame();
+              requestAnimationFrame(detectFrame);
+            }
           };
-        } catch (error) {
-          console.error("Error accessing camera:", error);
-        }
+
+          detectFrame();
+        };
+      } catch (error) {
+        console.error("Error accessing camera:", error);
       }
     }
-  };
+  }
+};
 
   // Function to resize the canvas based on the video's dimensions
   const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
