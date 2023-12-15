@@ -286,17 +286,8 @@ body {
 	cursor: pointer;
   }
 
-  
-  
-  .deletebtn{
-	margin: 10px;
-	background-color: rgb(255, 106, 106);
-	border-radius: 10px;
-	width: 50px;
-  }
-
-  .deletebtn:hover{
-	background-color: #001C30;
-  }
+.detection-canvas{
+	display: none;
+}
 
   
