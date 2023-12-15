@@ -204,10 +204,10 @@ body {
   /* Object Detection Wrapper */
   .object-detection-wrapper {
 	position: relative;
-	max-width: 640px;
+	max-width: 680px;
 	margin: auto;
 	overflow-y: scroll hidden;
-	height: 160vh; /* 100% of the viewport height */
+	height: 200vh; /* 100% of the viewport height */
   }
   
   /* Video Canvas Wrapper with Margin */
@@ -251,7 +251,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 100vh; /* Adjust as needed */
+	height: 50vh; /* Adjust as needed */
   }
   
   /* Style for the loading text */
@@ -298,3 +298,5 @@ body {
   .deletebtn:hover{
 	background-color: #001C30;
   }
+
+  

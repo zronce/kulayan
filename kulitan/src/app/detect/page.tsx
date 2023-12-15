@@ -11,6 +11,7 @@ export default function ObjectDetection() {
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
   const imageResultRef = useRef<HTMLDivElement | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [predictionAccuracy, setPredictionAccuracy] = useState<number | null>(null);
 
   useEffect(() => {
     // Load the Teachable Machine model
@@ -52,64 +53,105 @@ export default function ObjectDetection() {
 
           // Display the results
           displayImageAndResults(image, predictions);
+
+          // Check if a delete button already exists
+          if (!document.querySelector('button')) {
+            // Create a delete button and append it to the DOM
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Clear';
+            deleteButton.addEventListener('click', () => clearImageAndResults());
+            document.getElementById('delete-button-container')?.appendChild(deleteButton);
+          }
+          
         };
       } catch (error) {
         console.error("Error handling image upload:", error);
       }
     }
   };
-  const handleDeleteImage = () => {
-    setSelectedImage(null);
-    if (imageResultRef.current) {
-      imageResultRef.current.innerHTML = "";
-    }
-    // You can also add code here to clear any related state or perform other actions.
-  };
-  
-  //Display Image result
-const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
-  if (canvasRef.current && imageResultRef.current) {
+ 
+  const clearImageAndResults = () => {
+    // Clear the canvas
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+  
+    // Clear the image
+    setSelectedImage(null);
+  
+    // Clear the result elements
+    const probabilityTextElement = document.getElementById('probability-text');
+    const probabilityRateElement = document.getElementById('probability-rate');
+    if (probabilityTextElement && probabilityRateElement) {
+      probabilityTextElement.textContent = '';
+      probabilityRateElement.textContent = '';
+    }
+  
+    // Remove the delete button
+    const deleteButton = document.querySelector('button');
+    if (deleteButton) {
+      deleteButton.remove();
+    }
+  };
 
-    if (ctx) {
-      // Resize the canvas based on the image's dimensions
-      canvas.width = image.width;
-      canvas.height = image.height;
-
-      if (predictions.length > 0) {
-        // Display the class with the highest probability
-        const maxPrediction = predictions.reduce((max, prediction) =>
-          prediction.probability > max.probability ? prediction : max
-        );
-
-        // Display image result below the canvas
-        const imageResult = imageResultRef.current;
-
-        if (maxPrediction.probability >= 0.7) {
-          // Display the class with the highest probability
-          ctx.drawImage(image, 0, 0, image.width, image.height);
-          ctx.font = "25px Arial";
-          ctx.fillStyle = "white";
-          ctx.fillText(
-            `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
-            25,
-            50
+  //Display Image result
+  const displayImageAndResults = (image: HTMLImageElement, predictions: Array<{ className: string, probability: number }>) => {
+    const probabilityTextElement = document.getElementById("probability-text");
+    const probabilityRateElement = document.getElementById("probability-rate");
+    
+    if (canvasRef.current && probabilityTextElement && probabilityRateElement) {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext("2d");
+  
+      if (ctx) {
+        // Resize the canvas based on the image's dimensions
+        canvas.width = image.width;
+        canvas.height = image.height;
+  
+        if (predictions.length > 0) {
+          const maxPrediction = predictions.reduce((max, prediction) =>
+            prediction.probability > max.probability ? prediction : max
           );
-
-          // Display detected class and probability as before
-          imageResult.innerHTML = `
-            <p>Detected: ${maxPrediction.className}</p>
-            <p>Probability: ${Math.round(maxPrediction.probability * 100)}%</p>
-          `;
+  
+          if (maxPrediction.probability >= 0.7) {
+            // Display the class with the highest probability
+            ctx.drawImage(image, 0, 0, image.width, image.height);
+            ctx.font = "25px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText(
+              `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
+              25,
+              50
+            );
+  
+            // Update the probability text element
+            probabilityTextElement.textContent = `Class Name: ${maxPrediction.className} `;
+            probabilityRateElement.textContent = `Probability: ${Math.round(maxPrediction.probability * 100)}%`;
+          } else {
+            // If probability is below 70%, display "No Kulitan Detected"
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = "25px Arial";
+            ctx.fillStyle = "white";
+            ctx.fillText("No Kulitan Detected", 25, 50);
+  
+            // Update the probability text element accordingly
+            probabilityTextElement.textContent = "No Kulitan Detected";
+            probabilityRateElement.textContent = "Probability: Below 70%";
+          }
         } else {
-          // Replace the content with "Not a Glyph" when the probability is below 70%
-          imageResult.innerHTML = '<p>Detected: Not a Kulitan Glyph</p>';
+          // Handle the case when there are no predictions
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          probabilityTextElement.textContent = "Class Name: No Predictions";
+          probabilityRateElement.textContent = "Probability: N/A";
         }
       }
     }
-  }
-};
+  };
+  
 
 const detectObjects = async (model: tmImage.CustomMobileNet) => {
   if (videoRef.current && canvasRef.current) {
@@ -180,49 +222,51 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
   };
   
 
-  return (
-    
-    <div className="object-detection-wrapper">
-      <br></br>
+return (
+  <div className="object-detection-wrapper">
+    <br />
       <h1 className="Label1">Real-Time Detection</h1>
-      <br></br>
+    <br />
       <div className="file-container">
-          <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
-          <br></br>
-          <button className="deletebtn" onClick={handleDeleteImage}>Close</button>
-
-        <div className="imgcenter">
-            {/* Display the selected image using <Image /> */}
-              {selectedImage && (
-               <div className="image-preview">
-                 <NextImage
-                    src={selectedImage}
-                    alt="Selected"
-                    width={150} // Adjust the width and height as needed
-                    height={150}
-                 />
-               </div>
-              )}
-        </div> 
+        <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
+        <div id="delete-button-container"></div>
       </div>
-
-      <div ref={imageResultRef} className="image-result"></div>
-      {modelLoaded ? (
-        <div className="video-canvas-wrapper">
-          <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
-          <canvas ref={canvasRef} className="detection-canvas" />
+      
+      {selectedImage && (
+        <div className="img-cont" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <NextImage 
+              className="imgprev"
+              src={selectedImage}
+              alt="Selected Preview"
+              layout="responsive"
+              width={200}
+              height={200}
+              style={{
+              border: '5px solid #000',
+              borderRadius: '10px',
+              maxWidth: '30%',
+              maxHeight: '30%',
+              marginTop: '20px',
+              }}
+            />
         </div>
-        
+      )}
+
+<div className="probability-text" id="probability-text"></div>
+<div className="probability-rate" id="probability-rate"></div>
+
+
+{modelLoaded ? (
+    <div className="video-canvas-wrapper">
+        <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
+        <canvas ref={canvasRef} className="detection-canvas" />
+    </div>
       ) : (
         <div className="loading-bar">
           <p>Loading Model...</p>
           <div className="loading-spinner"></div>
         </div>
-        
       )}
-
     </div>
-    
   );
-  
 }
