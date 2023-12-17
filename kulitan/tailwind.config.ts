@@ -49,11 +49,11 @@ const config: Config = {
 				mono: ["Space Mono", "monospace"],
 			},
 			backgroundImage: {
-				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+				"gradient-radial": "bg-white",
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 				"gradient-container":
-					"linear-gradient(180deg, #176B87 0%, #79E0EE 100%)",
+				"linear-gradient(180deg, #8ACDD7 0%, #8ACDD7 100%)",
 				"kulitan-pattern": "url('./shared/images/transcribe-bg.png')",
 			},
 			borderRadius: {

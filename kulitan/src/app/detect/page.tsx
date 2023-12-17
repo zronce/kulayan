@@ -4,6 +4,8 @@ import React, { useRef, useEffect, useState } from "react";
 import * as tf from "@tensorflow/tfjs";
 import * as tmImage from "@teachablemachine/image";
 import NextImage from 'next/image';
+import Link from "next/link";
+import { BackArrow } from "@/shared/icons/BackArrow";
 
 export default function ObjectDetection() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -11,7 +13,8 @@ export default function ObjectDetection() {
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
   const imageResultRef = useRef<HTMLDivElement | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [predictionAccuracy, setPredictionAccuracy] = useState<number | null>(null);
+  
+
 
   useEffect(() => {
     // Load the Teachable Machine model
@@ -209,6 +212,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
   }
 };
 
+
   // Function to resize the canvas based on the video's dimensions
   const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
     const videoWidth = video.videoWidth;
@@ -222,51 +226,64 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
   };
   
 
-return (
-  <div className="object-detection-wrapper">
-    <br />
+  return (
+    <div className="w-full flex flex-col gap-6">
+				<div className="w-full flex justify-center items-center relative h-[49px]">
+					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
+					<Link href="/" className="absolute left-5 z-10">
+						<BackArrow />
+					</Link>
+
+    <div className="object-detection-wrapper">
+
+      <br />
+      <br></br>
+      <br></br>
       <h1 className="Label1">Real-Time Detection</h1>
-    <br />
+      <br />
       <div className="file-container">
         <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
         <div id="delete-button-container"></div>
       </div>
-      
+  
       {selectedImage && (
         <div className="img-cont" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <NextImage 
-              className="imgprev"
-              src={selectedImage}
-              alt="Selected Preview"
-              layout="responsive"
-              width={200}
-              height={200}
-              style={{
+          <NextImage 
+            className="imgprev"
+            src={selectedImage}
+            alt="Selected Preview"
+            layout="responsive"
+            width={200}
+            height={200}
+            style={{
               border: '5px solid #000',
               borderRadius: '10px',
               maxWidth: '30%',
               maxHeight: '30%',
               marginTop: '20px',
-              }}
-            />
+            }}
+          />
         </div>
       )}
-
-<div className="probability-text" id="probability-text"></div>
-<div className="probability-rate" id="probability-rate"></div>
-
-
-{modelLoaded ? (
-    <div className="video-canvas-wrapper">
-        <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
-        <canvas ref={canvasRef} className="detection-canvas" />
-    </div>
+  
+      <div className="probability-text" id="probability-text"></div>
+      <div className="probability-rate" id="probability-rate"></div>
+  
+      {modelLoaded ? (
+        // Content to render when modelLoaded is true
+        <div className="video-canvas-wrapper">
+          <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
+          <canvas ref={canvasRef} className="detection-canvas" />
+        </div>
       ) : (
+        // Default loading content
         <div className="loading-bar">
           <p>Loading Model...</p>
           <div className="loading-spinner"></div>
         </div>
       )}
     </div>
+    </div>
+    </div>
   );
-}
+} 

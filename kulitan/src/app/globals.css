@@ -85,11 +85,6 @@ body {
 	box-sizing: border-box;
   }
   
-  /* Style the Body Element */
-  body {
-	font-family: Arial, sans-serif;
-	background-color: #f2f2f2;
-  }
   
   /* Style the Title Headers */
   .title {
@@ -206,8 +201,7 @@ body {
 	position: relative;
 	max-width: 680px;
 	margin: auto;
-	overflow-y: scroll hidden;
-	height: 200vh; /* 100% of the viewport height */
+
   }
   
   /* Video Canvas Wrapper with Margin */
