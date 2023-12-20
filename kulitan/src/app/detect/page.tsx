@@ -278,7 +278,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
       ) : (
         // Default loading content
         <div className="loading-bar">
-          <p>Loading Model...</p>
+          <p>Loading Models...</p>
           <div className="loading-spinner"></div>
         </div>
       )}
