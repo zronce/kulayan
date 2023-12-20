@@ -294,7 +294,7 @@ export default function Reading() {
 				</style>
 				<br></br>
 				<div className="quiz">
-  				<Link href="quiz">
+  				<Link href="levels">
     			<button className="qzbtn">
       			Start Test
     			</button>

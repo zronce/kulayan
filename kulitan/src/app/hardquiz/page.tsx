@@ -3,7 +3,7 @@
 import { BackArrow } from "@/shared/icons/BackArrow";
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
-import questionsData from './questions';
+import questionsData from './hardquestions';
 
 export default function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

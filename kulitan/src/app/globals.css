@@ -281,4 +281,72 @@ body {
   }
 
 
+  /* global.css */
+
+  .qcss {
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #eaeaea;
+	border: 2px solid #333;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.qcss h2 {
+	font-size: 200px;
+	color: #000;
+	font-family: 'kulitan', sans-serif;
+	animation: floatAnimation 2s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnimation {
+	0% {
+		transform: translateY(0);
+	}
+
+	100% {
+		transform: translateY(-20px);
+	}
+}
+
+  
+  .qcont {
+
+	width: 80%; 
+	max-width: 400px; 
+	max-height: 600px ;
+	margin: 0 auto;
+  
+	align-items: center;
+	background-color: #eaeaea; 
+	border: 2px solid #333; 
+	border-radius: 10px; 
+  
+	
+	text-align: center;
+	padding: 20px; 
+
+	
+  }
+ 
+  .button-choice {
+	background-color: #3498db;
+	
+	
+  }
+
+  .button-choice.clicked {
+	background-color: #043235;
+	
+  }
+
+  .button-choice.disabled {
+	
+  }
+
   
