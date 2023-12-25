@@ -3,7 +3,7 @@
 import { BackArrow } from "@/shared/icons/BackArrow";
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
-import questionsData from './questions';
+import questionsData from './s2q';
 
 export default function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -113,17 +113,17 @@ export default function Quiz() {
                 </div>
               </div>
             </div>
-        
+
             {showCorrectAnswer && (
               <p className="answerdp">
                 Answer = {currentQuestion.correctAnswer}
               </p>
             )}
-            
-            <br></br>
+
+<br></br>
             <div className="grid grid-cols-2 gap-4">
               {currentQuestion.options.map((option, index) => (
-                <button 
+                <button
                   key={index}
                   onClick={() => handleAnswerClick(option)}
                   className={`button-choice ${selectedAnswer === option ? 'clicked' : ''} ${userAnswers.some(answer => answer.questionId === currentQuestion.id) ? 'disabled' : ''}`}
@@ -169,8 +169,10 @@ export default function Quiz() {
           className="mt-4 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
           style={{ color: 'white' }}
         >
-          Restart Quiz
         </button>
+        <Link href="stage3">
+              <button className="stage3btn">Stage 2</button>
+            </Link>
           </div>
         )}
       </div>

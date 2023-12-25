@@ -8,6 +8,20 @@
 	src: url("../../public/fonts/kulitan-font.otf");
 }
 
+@font-face {
+	font-family: "noland";
+	src: url("../../public/fonts/noland-font.otf");
+}
+@font-face {
+	font-family: "kafeine";
+	src: url("../../public/fonts/kafeine.ttf");
+}
+
+@font-face {
+	font-family: "coolvetica";
+	src: url("../../public/fonts/coolvetica.otf");
+}
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -143,9 +157,6 @@ body {
 	text-align: center;
   }
 
-
-
-
 .quiz {
     font-size: 40px;
     display: flex;
@@ -154,33 +165,46 @@ body {
     height: 100px;
 }
 
-
 .qzbtn {
-    background-color: #001C30;
-    color: white; 
-    padding: 50px 80px;
-    border: 5px solid #ffffff; 
-    border-radius: 50px;
+    background-color: #ffffff; /* Set your desired background color */
+    color: #1c1c1c; /* Set the text color */
+    padding: 15px; /* Adjust padding as needed */
+    font-size: 70px; /* Set the font size */
+    border: none;
+    width: 500px; /* Set a fixed width for all buttons */
+    height: 200px;
+    border-radius: 2px; /* Add rounded corners */
     cursor: pointer;
-    background-size: cover; 
-    background-position: center; 
-    transition: background-color 0.3s ease, border-color 0.3s ease; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-    background-image: linear-gradient(to top, #001C30, transparent); /* Gradient from bottom to top */
+    transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
+    margin: 10px;
+    border-bottom: 5px solid #151515;
 }
 
 /* Hover effect */
 .qzbtn:hover {
-    background-color: #adb4bb; 
-    border-color: #ffffff; 
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
-    background-image: linear-gradient(to bottom, #0056b3, transparent); /* Gradient from top to bottom on hover */
+    color: white;
+    background-color: #2980b9; /* Change background color on hover */
+    transform: scale(1.1); /* Add a bounce effect on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+    .quiz {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .qzbtn {
+        font-size: 40px;
+        width: 300px; /* Set full width for buttons on small screens */
+        height: 150px;
+        margin: 10px 0; /* Adjust margin to separate buttons */
+    }
 }
 
 /* General styling */
 
 .Label1 {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'kafeine';
 	font-size: 1.5em;
 	color: #fff;
 	background-color: #001C30;;
@@ -210,7 +234,7 @@ body {
 	margin: 20px; /* Adjust the margin value as needed */
 	background-color: #001C30;;
 	border: 10px solid #001C30;;
-	border-radius: 50px;
+	border-radius: 10px;
   }
   
   /* Detection Video */
@@ -218,7 +242,7 @@ body {
 	width: 100%;
 	height: auto;
 	 /* Rounded corners at the top */
-	 border-radius: 45px;
+	 border-radius: 10px;
   }
   
   /* Detection Canvas */
@@ -233,12 +257,27 @@ body {
 	text-align: center;
   }
   
+  .imgprev{
+	width: 150px;
+	height: 150px;
+	border-radius: 5px;
+  }
 /* Define the keyframes for the spinner animation */
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
   
+
+.resultsdp{
+
+	width: 50%;
+	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	background-color: #000f17;
+}
   /* Style for the loading spinner container */
   .loading-bar {
 	display: flex;
@@ -286,20 +325,20 @@ body {
   .qcss {
 	margin-left: auto;
 	margin-right: auto;
-	width: 300px;
-	height: 300px;
+	width: 310px;
+	height: 250px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #eaeaea;
+	background-color: #f4f4f4;
 	border: 2px solid #333;
 	border-radius: 10px;
 	text-align: center;
 }
 
 .qcss h2 {
-	font-size: 200px;
-	color: #000;
+	font-size: 150px;
+	color: #093041;
 	font-family: 'kulitan', sans-serif;
 	animation: floatAnimation 2s ease-in-out infinite alternate;
 }
@@ -316,37 +355,128 @@ body {
 
   
   .qcont {
-
 	width: 80%; 
-	max-width: 400px; 
+	max-width: 800px; 
 	max-height: 600px ;
 	margin: 0 auto;
-  
 	align-items: center;
-	background-color: #eaeaea; 
+	background-color: #f4f4f4; 
 	border: 2px solid #333; 
-	border-radius: 10px; 
-  
-	
+	border-radius: 10px; 	
 	text-align: center;
-	padding: 20px; 
-
-	
+	padding: 20px; 	
   }
  
   .button-choice {
-	background-color: #3498db;
-	
-	
+	color: #000f17;
+	background-color: #ffffff;	
+	height: 40px;
+	border-radius: 5px;
+	font-size: larger;
+	font-family: "coolvetica";
+	border: #000f17;
+	border-bottom: 2px solid #151515;
+	transition: transform 0.1s ease-in-out;
+  }
+
+  .button-choice:hover {
+	color: white;
+	background-color: #1fc6d8;
+	transform: translateY(-5px); /* Adjust the value to control the raising height */
   }
 
   .button-choice.clicked {
-	background-color: #043235;
+	color: white;
+	background-color: #053852;
 	
   }
 
-  .button-choice.disabled {
+
+
+  .answerdp{
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #151515;
+	border-radius: 20px;
+	width: 200px;
+	color: #ffffff;
+	font-family: "coolvetica";
+	font-size: x-large;
 	
   }
 
+/* Add this to your existing CSS or create a new CSS file */
+.progress-bar-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+  }
   
+  .progress-bar {
+	width: 100%;
+	background-color: #ccc;
+	height: 8px;
+	border-radius: 4px;
+  }
+  
+  .progress-bar-fill {
+	height: 100%;
+	background-color: #4caf50;
+	border-radius: 4px;
+  }
+  
+  
+  .levelcont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Optional: Set a height to center vertically within the viewport */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+}
+
+.levelbtn button,
+.levelbtn2 button,
+.levelbtn3 button {
+    background-color: #ffffff; /* Set your desired background color */
+    color: #1c1c1c; /* Set the text color */
+    padding: 15px; /* Adjust padding as needed */
+    font-size: 70px; /* Set the font size */
+    border: none;
+    width: 250px; /* Set a fixed width for all buttons */
+    height: 200px;
+    border-radius: 2px; /* Add rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
+    margin: 10px;
+    border-bottom: 5px solid #151515;
+}
+
+.levelbtn button:hover,
+.levelbtn2 button:hover,
+.levelbtn3 button:hover {
+    color: white;
+    background-color: #2980b9; /* Change background color on hover */
+    transform: scale(1.1); /* Add a bounce effect on hover */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+    .levelcont {
+        flex-direction: column; /* Stack items vertically on small screens */
+    }
+
+    .levelbtn button,
+    .levelbtn2 button,
+    .levelbtn3 button {
+        font-size: 30px;
+        width: 200px; /* Set full width for buttons on small screens */
+        height: 80px;
+        margin: 10px 0; /* Adjust margin to separate buttons */
+    }
+}
+
+
+
+
+

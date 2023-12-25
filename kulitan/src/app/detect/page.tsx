@@ -14,15 +14,13 @@ export default function ObjectDetection() {
   const imageResultRef = useRef<HTMLDivElement | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   
-
-
   useEffect(() => {
     // Load the Teachable Machine model
     const loadModel = async () => {
       try {
         await tf.ready();
-        const modelURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/model.json";
-        const metadataURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/metadata.json";
+        const modelURL = "https://storage.googleapis.com/tm-model/FQppwPZf1/model.json";
+        const metadataURL = "https://storage.googleapis.com/tm-model/FQppwPZf1/metadata.json";
         const model = await tmImage.load(modelURL, metadataURL);
         detectObjects(model);
         setModelLoaded(true);
@@ -40,8 +38,8 @@ export default function ObjectDetection() {
 
     if (file) {
       try {
-        const modelURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/model.json";
-        const metadataURL = "https://storage.googleapis.com/tm-model/nsOtcjFZw/metadata.json";
+        const modelURL = "https://storage.googleapis.com/tm-model/FQppwPZf1/model.json";
+        const metadataURL = "https://storage.googleapis.com/tm-model/FQppwPZf1/metadata.json";
         const model = await tmImage.load(modelURL, metadataURL);
 
         // Create an image element to display the uploaded image
@@ -133,7 +131,7 @@ export default function ObjectDetection() {
   
             // Update the probability text element
             probabilityTextElement.textContent = `Class Name: ${maxPrediction.className} `;
-            probabilityRateElement.textContent = `Probability: ${Math.round(maxPrediction.probability * 100)}%`;
+            probabilityRateElement.textContent = `Confidence: ${Math.round(maxPrediction.probability * 100)}%`;
           } else {
             // If probability is below 70%, display "No Kulitan Detected"
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -143,13 +141,13 @@ export default function ObjectDetection() {
   
             // Update the probability text element accordingly
             probabilityTextElement.textContent = "No Kulitan Detected";
-            probabilityRateElement.textContent = "Probability: Below 70%";
+            probabilityRateElement.textContent = "Confidence: Below 70%";
           }
         } else {
           // Handle the case when there are no predictions
           ctx.clearRect(0, 0, canvas.width, canvas.height);
           probabilityTextElement.textContent = "Class Name: No Predictions";
-          probabilityRateElement.textContent = "Probability: N/A";
+          probabilityRateElement.textContent = "Confidence: N/A";
         }
       }
     }
@@ -183,7 +181,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               );
 
               // Display the class with the highest probability
-              ctx.font = "25px Arial";
+              ctx.font = "25px coolvetica";
               ctx.fillStyle = "red";
               ctx.fillText(
                 `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
@@ -194,7 +192,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               // Display "Not a Glyph" when the probability is below 70%
               if (maxPrediction.probability < 0.7) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.font = "25px Arial";
+                ctx.font = "25px coolvetica";
                 ctx.fillStyle = "red";
                 ctx.fillText("Not a Kulitan Glyph", 25, 50);
               }
@@ -248,27 +246,14 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
   
       {selectedImage && (
         <div className="img-cont" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <NextImage 
-            className="imgprev"
-            src={selectedImage}
-            alt="Selected Preview"
-            layout="responsive"
-            width={200}
-            height={200}
-            style={{
-              border: '5px solid #000',
-              borderRadius: '10px',
-              maxWidth: '30%',
-              maxHeight: '30%',
-              marginTop: '20px',
-            }}
-          />
+          <NextImage className="imgprev" src={selectedImage} alt="Selected Preview" width={150} height={150}/>
         </div>
       )}
-  
-      <div className="probability-text" id="probability-text"></div>
+  <div className="resultsdp">
+      <div className="font-kafeine probability-text" id="probability-text"></div>
       <div className="probability-rate" id="probability-rate"></div>
-  
+  </div>
+
       {modelLoaded ? (
         // Content to render when modelLoaded is true
         <div className="video-canvas-wrapper">
@@ -278,7 +263,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
       ) : (
         // Default loading content
         <div className="loading-bar">
-          <p>Loading Models...</p>
+          <p className="font-kafeine">Loading Model...</p>
           <div className="loading-spinner"></div>
         </div>
       )}

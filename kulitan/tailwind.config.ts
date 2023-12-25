@@ -45,7 +45,10 @@ const config: Config = {
 				card: "rgb(0,28,48,50%)",
 			},
 			fontFamily: {
+				noland:["noland"],
+				kafeine:["kafeine"],
 				kulitan: ["kulitan"],
+				coolvetica:["coolvetica"],
 				mono: ["Space Mono", "monospace"],
 			},
 			backgroundImage: {

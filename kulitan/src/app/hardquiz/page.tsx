@@ -12,6 +12,9 @@ export default function Quiz() {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [questions, setQuestions] = useState(questionsData.questions);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [totalQuestions, setTotalQuestions] = useState(questions.length);
+  const [currentProgress, setCurrentProgress] = useState(0);
+  const [quizCompleted, setQuizCompleted] = useState(false);
 
 
   useEffect(() => {
@@ -61,10 +64,30 @@ export default function Quiz() {
   const handleNextButtonClick = () => {
     // Move to the next question
     setCurrentQuestionIndex(currentQuestionIndex + 1);
+    // Increment progress
+    setCurrentProgress(currentProgress + 1);
+  
+    // Check if the quiz is completed
+    if (currentQuestionIndex + 1 === totalQuestions) {
+      setQuizCompleted(true);
+    }
+  
     // Clear the selected answer and hide the correct answer when moving to the next question
     setSelectedAnswer(null);
     setShowCorrectAnswer(false);
   };
+  
+  const handleRestartButtonClick = () => {
+    // Reset quiz state
+    setCurrentQuestionIndex(0);
+    setCurrentProgress(0);
+    setUserAnswers([]);
+    setScore(0);
+    setSelectedAnswer(null);
+    setShowCorrectAnswer(false);
+    setQuizCompleted(false);
+  };
+  
 
   const renderQuestion = () => {
     const currentQuestion = questions[currentQuestionIndex];
@@ -78,11 +101,25 @@ export default function Quiz() {
 
         <div className="qcont">
           <div className="mt-4">
-          {showCorrectAnswer && (
-              <p className="text-green-500 font-bold">
-                Correct Answer: {currentQuestion.correctAnswer}
+            {/* Progress bar and numbering */}
+            <div className="flex justify-between items-center mb-4">
+              <div className="text-sm text-gray-500">Question {currentProgress + 1} of {totalQuestions}</div>
+              <div className="flex items-center">
+                <div className="w-full bg-gray-300 h-2 rounded-md overflow-hidden">
+                  <div
+                    className="bg-green-500 h-full"
+                    style={{ width: `${(currentProgress / totalQuestions) * 100}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            {showCorrectAnswer && (
+              <p className="answerdp">
+                Answer = {currentQuestion.correctAnswer}
               </p>
             )}
+            <br></br>
             <div className="grid grid-cols-2 gap-4">
               {currentQuestion.options.map((option, index) => (
                 <button
@@ -119,16 +156,20 @@ export default function Quiz() {
           </Link>
           <p className="font-kulitan text-[20px] z-10 text-white">pa g su la t</p>
         </div>
-<div>
-  <h1 className="titleqz">NANU YA INI?</h1>
-  <h3 className="subtitleqz">What is this?</h3>
-</div>
+
         {currentQuestionIndex < questions.length ? (
           renderQuestion()
         ) : (
           <div className="flex justify-center items-center h-screen pb-20">
             <p className="text-2xl font-bold text-black">Quiz completed!</p>
             <p className="mt-4 text-black">Your score: {score}/{questions.length}</p>
+            <button
+          onClick={handleRestartButtonClick}
+          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
+          style={{ color: 'white' }}
+        >
+          Restart Quiz
+        </button>
           </div>
         )}
       </div>

@@ -18,20 +18,27 @@ export default function Level(){
 					</Link>
 					<p className="font-kulitan text-[20px] z-10">pa g su la t</p>
 				</div>
-
+		
+		<div className="levelcont">
 			<div className="levelbtn">
-                <Link href="quiz">
-				<button >NORMAL</button>
+                <Link href="quiz" >
+				<button className="font-kafeine">EASY</button>
 				</Link>
             </div>	
 
             <div className="levelbtn2">
-                <Link href="hardquiz">
-				<button >HARD</button>
+                <Link href="normalquiz">
+				<button className="font-kafeine">MID</button>
 				</Link>
             </div>
 
+			<div className="levelbtn3">
+                <Link href="hardquiz">
+				<button className="font-kafeine ">HARD</button>
+				</Link>
+            </div>
 			</div>
-		</main>
-	);
+		</div>
+	</main>
+);
 }
