@@ -170,7 +170,9 @@ export default function Transcribe() {
 					<Link href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<p className="font-kulitan text-[20px] z-10">i lu lin</p>
+					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+      Pamanlikas
+    </div>
 				</div>
 				<div className="flex gap-3 flex-wrap justify-center items-start px-5">
 					<TransparentCard className="z-10">

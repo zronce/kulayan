@@ -287,11 +287,11 @@ export default function Reading() {
 					<Link href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<p className="text-[20px] z-10">Pamamasa</p>
-				</div>
-				<style>
+					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+      PAMAMASA
+    </div>
 					
-				</style>
+				</div>
 				<br></br>
 				<div className="quiz">
   				<Link href="levels">

@@ -16,7 +16,9 @@ export default function Level(){
 					<Link href="reading" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<p className="font-kulitan text-[20px] z-10">pa g su la t</p>
+					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+      LEVELS
+    </div>
 				</div>
 		
 		<div className="levelcont">

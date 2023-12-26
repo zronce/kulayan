@@ -60,9 +60,19 @@ export default function ObjectDetection() {
             // Create a delete button and append it to the DOM
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Clear';
+            
+            // Apply custom font style
+            deleteButton.style.fontFamily = 'ls2'; // Replace 'YourCustomFont' with your desired font
+            
+            // Apply background color and border radius
+            deleteButton.style.backgroundColor = '#FF6969'; // Replace 'YourBackgroundColor' with your desired color
+            deleteButton.style.borderRadius = '2px'; // Replace 'YourBorderRadius' with your desired radius
+            deleteButton.style.width = '50px';
+        
             deleteButton.addEventListener('click', () => clearImageAndResults());
             document.getElementById('delete-button-container')?.appendChild(deleteButton);
-          }
+        }
+        
           
         };
       } catch (error) {
@@ -181,7 +191,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               );
 
               // Display the class with the highest probability
-              ctx.font = "25px coolvetica";
+              ctx.font = "25px ls2";
               ctx.fillStyle = "red";
               ctx.fillText(
                 `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
@@ -192,7 +202,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               // Display "Not a Glyph" when the probability is below 70%
               if (maxPrediction.probability < 0.7) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.font = "25px coolvetica";
+                ctx.font = "25px ls2";
                 ctx.fillStyle = "red";
                 ctx.fillText("Not a Kulitan Glyph", 25, 50);
               }
@@ -226,8 +236,10 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
 
   return (
     <div className="w-full flex flex-col gap-6">
-				<div className="w-full flex justify-center items-center relative h-[49px]">
-					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
+				<div className="w-full flex justify-center items-center relative h-[50px]">
+    <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+      GLYPHS DETECTION
+    </div>
 					<Link href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
@@ -237,21 +249,20 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
       <br />
       <br></br>
       <br></br>
-      <h1 className="Label1">Real-Time Detection</h1>
-      <br />
+      
       <div className="file-container">
         <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
         <div id="delete-button-container"></div>
       </div>
-  
+  <br></br>
       {selectedImage && (
         <div className="img-cont" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <NextImage className="imgprev" src={selectedImage} alt="Selected Preview" width={150} height={150}/>
         </div>
       )}
   <div className="resultsdp">
-      <div className="font-kafeine probability-text" id="probability-text"></div>
-      <div className="probability-rate" id="probability-rate"></div>
+      <div className="probtext font-ls3 probability-text" id="probability-text"></div>
+      <div className="font-ls4 probability-rate" id="probability-rate"></div>
   </div>
 
       {modelLoaded ? (
@@ -259,11 +270,13 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
+          <br></br>
+          <h1 className="Label1">NOTE: For better results use black marker and white paper  </h1>
         </div>
       ) : (
         // Default loading content
         <div className="loading-bar">
-          <p className="font-kafeine">Loading Model...</p>
+          <p className="loading">Loading Model...</p>
           <div className="loading-spinner"></div>
         </div>
       )}
@@ -272,3 +285,4 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
     </div>
   );
 } 
+

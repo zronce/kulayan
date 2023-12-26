@@ -155,7 +155,9 @@ export default function Quiz() {
           <Link href="levels" className="absolute left-5 z-10">
             <BackArrow />
           </Link>
-          <p className="font-kulitan text-[20px] z-10 text-white">pa g su la t</p>
+          <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+      STAGE 2
+    </div>
         </div>
 
         {currentQuestionIndex < questions.length ? (

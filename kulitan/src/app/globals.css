@@ -22,6 +22,67 @@
 	src: url("../../public/fonts/coolvetica.otf");
 }
 
+@font-face {
+	font-family: "blackout2am";
+	src: url("../../public/fonts/blackout2am.ttf");
+}
+
+@font-face {
+	font-family: "blackoutmid";
+	src: url("../../public/fonts/blackoutmid.ttf");
+}
+
+@font-face {
+	font-family: "blackoutsun";
+	src: url("../../public/fonts/blackoutsun.ttf");
+	
+}
+
+@font-face {
+	font-family: "blackouttwoam";
+	src: url("../../public/fonts/blackouttwoam.ttf");
+}
+
+@font-face {
+	font-family: "ls1";
+	src: url("../../public/fonts/LS1.otf");
+}
+
+@font-face {
+	font-family: "ls2";
+	src: url("../../public/fonts/LS2.otf");
+}
+
+@font-face {
+	font-family: "ls3";
+	src: url("../../public/fonts/LS3.otf");
+}
+
+@font-face {
+	font-family: "ls4";
+	src: url("../../public/fonts/LS4.otf");
+}
+
+@font-face {
+	font-family: "ls5";
+	src: url("../../public/fonts/LS5.otf");
+}
+
+@font-face {
+	font-family: "ls6";
+	src: url("../../public/fonts/LS6.otf");
+}
+
+@font-face {
+	font-family: "ls7";
+	src: url("../../public/fonts/LS7.otf");
+}
+
+@font-face {
+	font-family: "ls8";
+	src: url("../../public/fonts/LS8.otf");
+}
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -202,30 +263,43 @@ body {
 }
 
 /* General styling */
-
 .Label1 {
-	font-family: 'kafeine';
-	font-size: 1.5em;
-	color: #fff;
-	background-color: #001C30;;
-	text-align: center;
-	margin-bottom: 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	padding: 10px 20px;
-	border-radius: 15px;
-	max-width: 500px; /* Set a maximum width for the element */
-	margin: 0 auto; /* Center the element by setting margin-left and margin-right to auto */
-	/* You can add more styles as needed */
+	color: #ffffff;
+	font-family: 'ls4';
+	font-size: 20px;
   }
+
   
-  
-  /* Object Detection Wrapper */
-  .object-detection-wrapper {
+ /* Media query for smaller screens */
+@media (max-width: 767px) {
+    .Label1 {
+		margin-top: 10px;
+		margin-bottom: 10px;
+        font-size: 20px;
+    }
+}
+
+.navbar{
+	font-family: "kafeine";
+	font-size: 25px;
+}
+
+.pagetitle{
+	font-family: "kafeine";
+	font-size: 80px;
+	color: #212A3E;
+}
+
+.subtitle{
+	font-family: "kulitan";
+	font-size: 30px;
+	color: #212A3E;
+}
+/* Object Detection Wrapper */
+.object-detection-wrapper {
 	position: relative;
 	max-width: 680px;
 	margin: auto;
-
   }
   
   /* Video Canvas Wrapper with Margin */
@@ -278,6 +352,10 @@ body {
 	margin-top: 10px;
 	background-color: #000f17;
 }
+
+.probtext{
+	font-size: 20px;
+}
   /* Style for the loading spinner container */
   .loading-bar {
 	display: flex;
@@ -305,7 +383,7 @@ body {
   .file-upload{
 	background-color: #001C30;
 	border: 5px solid #001C30;
-	border-radius: 50px;
+	border-radius: 5px;
 	padding: 2px;
 	font-size: 15px;
   }
@@ -315,7 +393,7 @@ body {
 	color: #f2f2f2;
 	padding: 8px 16px;
 	border: none;
-	border-radius: 50px;
+	border-radius: 5px;
 	cursor: pointer;
   }
 
@@ -391,7 +469,10 @@ body {
 	
   }
 
-
+.loading{
+	font-family: "kafeine";
+	font-size: 50px;
+}
 
   .answerdp{
 	margin-left: auto;
@@ -475,6 +556,13 @@ body {
         margin: 10px 0; /* Adjust margin to separate buttons */
     }
 }
+
+
+.card1:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+}
+
 
 
 

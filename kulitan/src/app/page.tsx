@@ -1,33 +1,30 @@
 "use client";
 import Image from "next/image";
-
 import Card from "@/components/templates/Card"; 
 import KapampanganFont from "@/shared/images/kapampangan-font.png";
 import KapampanganReading from "@/shared/images/reading.png";
 import KapampanganWriting from "@/shared/images/writing.png";
 import DetectLogo from "@/shared/images/camera.jpg";
 
+
 export default function Home() {
 	return (
 		<main className="min-h-screen min-w-screen flex flex-col items-start justify-start p-9 max-miniPhone:p-5 gap-12">
 			<div className="w-full">
-				<div className="flex-col flex-wrap max-w-[120px]">
-					<p className="text-xl font-medium text-shadow">KU LIT AN</p>
-					<p className="text-xl font-medium text-shadow font-kulitan flex gap-2 items-center justify-between -mt-2 max-w-[96px]">
-						<span>KU</span>
-						<span>LIT</span>
-						<span>AN</span>
-					</p>
-				</div>
+					<p className="pagetitle">KULAYAN</p>
+					<span className="subtitle">laragamap</span>
+					
 			</div>
-			<div className="w-full flex flex-col gap-5">
+			<div className=" w-full flex flex-col gap-5">
+				<div className="card1">
 				<Card
 					link="detect"
 					buttonTitle={
 						<>
-							Real-time Detection | <span className="font-kulitan">i lu lin</span>
+							<span className="font-kafeine">Glyphs Detection</span> 
 						</>
 					}
+					
 				>
 					<Image
 						src={DetectLogo}
@@ -36,13 +33,14 @@ export default function Home() {
 						height={200}
 					/>
 				</Card>
+				</div>
 
-
+				<div className="card1">
 				<Card
 					link="transcribe"
 					buttonTitle={
 						<>
-							Transcribe | <span className="font-kulitan">i lu lin</span>
+							<span className="font-kafeine">Transcribe</span> 
 						</>
 					}
 				>
@@ -52,13 +50,15 @@ export default function Home() {
 						width={60}
 						height={100}
 					/>
-					<p className="h-[30%] pt-2 text-shadow">Kapampangan</p>
 				</Card>
-				<Card
+				</div>
+
+				<div className="card1">
+				<Card 
 					link="reading"
 					buttonTitle={
 						<>
-							Reading | <span className="font-kulitan">pa g ba sa</span>
+							<span className="font-kafeine">Reading</span> 
 						</>
 					}
 				>
@@ -70,11 +70,14 @@ export default function Home() {
 						height={300}
 					/>
 				</Card>
+				</div>
+
+				<div className="card1">
 				<Card
 					link="writing"
 					buttonTitle={
 						<>
-							Writing | <span className="font-kulitan">pag su lat</span>
+							<span className="font-kafeine">Writing</span> 
 						</>
 					}
 				>
@@ -86,9 +89,10 @@ export default function Home() {
 						height={120}
 					/>
 				</Card>
+				</div>
 			</div>
 			<footer className="w-full flex items-center justify-center">
-				<span className="font-kulitan text-dark opacity-50 font-bold text-[18px]">
+				<span className="font-kulitan text-dark opacity-100 font-bold text-[18px]">
 					ka pang pang an
 				</span>
 			</footer>

@@ -42,13 +42,25 @@ const config: Config = {
 					400: "#A69083",
 					500: "#857064",
 				},
-				card: "rgb(0,28,48,50%)",
+				card: "rgb(57,72,103,100%)",
 			},
 			fontFamily: {
 				noland:["noland"],
 				kafeine:["kafeine"],
 				kulitan: ["kulitan"],
 				coolvetica:["coolvetica"],
+				blackout2am:["blackout2am"],
+				blackoutmid:["blackoutmid"],
+				blackoutsun:["blackoutsun"],
+				ls1:["ls1"],
+				ls2:["ls2"],
+				ls3:["ls3"],
+				ls4:["ls4"],
+				ls5:["ls5"],
+				ls6:["ls6"],
+				ls7:["ls7"],
+				ls8:["ls8"],
+				blackouttwoam:["blackouttwoam"],
 				mono: ["Space Mono", "monospace"],
 			},
 			backgroundImage: {
@@ -56,7 +68,7 @@ const config: Config = {
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 				"gradient-container":
-				"linear-gradient(180deg, #8ACDD7 0%, #8ACDD7 100%)",
+				"linear-gradient(180deg, #DDF2FD 0%, #DDF2FD 100%)",
 				"kulitan-pattern": "url('./shared/images/transcribe-bg.png')",
 			},
 			borderRadius: {
