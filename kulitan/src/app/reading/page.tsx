@@ -275,6 +275,9 @@ export default function Reading() {
 	const [play132] = useSound(soundFile132);
 	const soundFile133 = '/audio/syllable_sound_kon.mp3';
 	const [play133] = useSound(soundFile133);
+	const soundFile134 = '/audio/click2.mp3';
+	const [play134] = useSound(soundFile134);
+
 	
 	return (
 		<main
@@ -295,16 +298,15 @@ export default function Reading() {
 				<br></br>
 				<div className="quiz">
   				<Link href="levels">
-    			<button className="font-kafeine qzbtn">
-      			Start Test
+    			<button onClick={play134} className="font-kafeine qzbtn">
+      					Start Test
     			</button>
   				</Link>
 				</div>
 
 			<br></br>
 			<h1 className="title">INDUNG SULAT</h1>
-			<div className="container">
-
+			<div className="container"> 
 				<button onClick={play1} id="btn1" className="styled-button"><div className="font-kulitan">Ga</div>Ga</button>
 				<button onClick={play2} id="btn2" className="styled-button"><div className="font-kulitan">Ka</div>Ka</button>
 				<button onClick={play3} id="btn3" className="styled-button"><div className="font-kulitan">Nga</div>Nga</button>

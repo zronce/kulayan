@@ -13,6 +13,7 @@
     "@capacitor/android": "^5.3.0",
     "@capacitor/core": "^5.3.0",
     "@headlessui/react": "^1.7.17",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@next/font": "^13.4.19",
     "@teachablemachine/image": "^0.8.5",
     "@tensorflow-models/coco-ssd": "^2.2.3",

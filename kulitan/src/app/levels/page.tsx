@@ -4,8 +4,12 @@ import { BackArrow } from "@/shared/icons/BackArrow";
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useEffect } from 'react';
+import useSound from 'use-sound';
 
 export default function Level(){
+	const soundFile135 = '/audio/click2.mp3';
+	const [play135] = useSound(soundFile135);
+
     return (
 		<main
 			className={`min-h-screen flex min-w-screen flex-col items-center justify-between gap-5 bg-gradient-container relative`}
@@ -24,19 +28,19 @@ export default function Level(){
 		<div className="levelcont">
 			<div className="levelbtn">
                 <Link href="quiz" >
-				<button className="font-kafeine">EASY</button>
+				<button onClick={play135} className="font-kafeine">EASY</button>
 				</Link>
             </div>	
 
             <div className="levelbtn2">
                 <Link href="normalquiz">
-				<button className="font-kafeine">MID</button>
+				<button onClick={play135} className="font-kafeine">MID</button>
 				</Link>
             </div>
 
 			<div className="levelbtn3">
                 <Link href="hardquiz">
-				<button className="font-kafeine ">HARD</button>
+				<button onClick={play135} className="font-kafeine ">HARD</button>
 				</Link>
             </div>
 			</div>

@@ -5,9 +5,11 @@ import KapampanganFont from "@/shared/images/kapampangan-font.png";
 import KapampanganReading from "@/shared/images/reading.png";
 import KapampanganWriting from "@/shared/images/writing.png";
 import DetectLogo from "@/shared/images/camera.jpg";
-
+import useSound from 'use-sound';
 
 export default function Home() {
+	const soundFile135 = '/audio/click2.mp3';
+	const [play135] = useSound(soundFile135);
 	return (
 		<main className="min-h-screen min-w-screen flex flex-col items-start justify-start p-9 max-miniPhone:p-5 gap-12">
 			<div className="w-full">
@@ -16,8 +18,8 @@ export default function Home() {
 					
 			</div>
 			<div className=" w-full flex flex-col gap-5">
-				<div className="card1">
-				<Card
+				<div onClick={play135} className="card1">
+				<Card 
 					link="detect"
 					buttonTitle={
 						<>
@@ -35,7 +37,7 @@ export default function Home() {
 				</Card>
 				</div>
 
-				<div className="card1">
+				<div onClick={play135} className="card1">
 				<Card
 					link="transcribe"
 					buttonTitle={
@@ -53,7 +55,7 @@ export default function Home() {
 				</Card>
 				</div>
 
-				<div className="card1">
+				<div onClick={play135} className="card1">
 				<Card 
 					link="reading"
 					buttonTitle={
@@ -72,7 +74,7 @@ export default function Home() {
 				</Card>
 				</div>
 
-				<div className="card1">
+				<div onClick={play135} className="card1">
 				<Card
 					link="writing"
 					buttonTitle={

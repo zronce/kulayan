@@ -4,6 +4,8 @@ import { BackArrow } from "@/shared/icons/BackArrow";
 import Link from "next/link";
 import React, { useState, useEffect } from 'react';
 import questionsData from './s3q';
+import useSound from 'use-sound';
+import { Player } from "@lottiefiles/react-lottie-player"
 
 export default function Quiz() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -15,6 +17,18 @@ export default function Quiz() {
   const [totalQuestions, setTotalQuestions] = useState(questions.length);
   const [currentProgress, setCurrentProgress] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const soundFile135 = '/audio/click2.mp3';
+	const [play135] = useSound(soundFile135);
+  const soundFile136 = '/audio/correct.mp3';
+	const [play136] = useSound(soundFile136);
+  const soundFile137 = '/audio/wrong.mp3';
+	const [play137] = useSound(soundFile137);
+  const vibrateOnWrongAnswer = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate([100, 50, 100, 50, 100]); // Vibration pattern: vibrate, pause, vibrate, pause, vibrate
+    }
+  };
+  
 
 
   useEffect(() => {
@@ -22,6 +36,7 @@ export default function Quiz() {
     const shuffledQuestions = shuffleArray(questionsData.questions);
     setQuestions(shuffledQuestions);
   }, []);
+  
 
   const shuffleArray = (array: Array<any>) => {
     const shuffledArray = [...array];
@@ -52,8 +67,11 @@ export default function Quiz() {
     // Update the score and store the user's answer
     if (isCorrect) {
       setScore(score + 1);
+      play136(); // Play correct sound
+    } else {
+      play137(); // Play wrong sound
+      vibrateOnWrongAnswer();
     }
-
     // Store the user's answer
     setUserAnswers(prevUserAnswers => [
       ...prevUserAnswers,
@@ -113,19 +131,22 @@ export default function Quiz() {
                 </div>
               </div>
             </div>
-
+        
             {showCorrectAnswer && (
               <p className="answerdp">
                 Answer = {currentQuestion.correctAnswer}
               </p>
             )}
-
-<br></br>
+            
+            <br></br>
             <div className="grid grid-cols-2 gap-4">
               {currentQuestion.options.map((option, index) => (
-                <button
+                <button 
                   key={index}
-                  onClick={() => handleAnswerClick(option)}
+                  onClick={() => {
+                    handleAnswerClick(option);
+                    play135(); // Call the play135 function here
+                  }}
                   className={`button-choice ${selectedAnswer === option ? 'clicked' : ''} ${userAnswers.some(answer => answer.questionId === currentQuestion.id) ? 'disabled' : ''}`}
                 >
                   {option}
@@ -135,13 +156,16 @@ export default function Quiz() {
           </div>
 
           <button
-            onClick={handleNextButtonClick}
-            className="mt-4 bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
-            style={{ color: 'white' }}
-            disabled={!userAnswers.some(answer => answer.questionId === currentQuestion.id)}
-          >
-            Next
-          </button>
+  onClick={() => {
+    handleNextButtonClick();
+    play135();
+  }}
+  className="nextbtn cursor-pointer"
+  style={{ color: 'white' }}
+  disabled={!userAnswers.some(answer => answer.questionId === currentQuestion.id)}
+>
+  NEXT
+</button>
         </div>
       </div>
     );
@@ -156,26 +180,40 @@ export default function Quiz() {
             <BackArrow />
           </Link>
           <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
-      STAGE 3
+    STAGE THREE
     </div>
         </div>
 
         {currentQuestionIndex < questions.length ? (
           renderQuestion()
         ) : (
-          <div className="flex justify-center items-center h-screen pb-20">
-            <p className="text-2xl font-bold text-black">Quiz completed!</p>
-            <p className="mt-4 text-black">Your score: {score}/{questions.length}</p>
-            <button
-          onClick={handleRestartButtonClick}
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
-          style={{ color: 'white' }}
-        >
-        </button>
-        <Link href="stage3">
-              <button className="stage3btn">Stage 2</button>
-            </Link>
+
+          <div className="quizcomplete">
+          <p className="donetitle">Quiz completed!</p>
+          <p className="donescore">Your score: {score}/{questions.length}</p>
+      
+          
+          <div className="lottie-animation">
+              <Player
+                  src='https://assets1.lottiefiles.com/packages/lf20_touohxv0.json'
+                  className="player"
+                  loop
+                  autoplay
+              />
           </div>
+      
+          <button
+              onClick={() => {
+                  handleRestartButtonClick();
+                  play135();
+              }}
+              className="restartbtn cursor-pointer"
+          >
+              START OVER
+          </button>
+      </div>
+      
+
         )}
       </div>
     </main>
