@@ -21,9 +21,9 @@ export default function Level(){
 						<BackArrow />
 					</Link>
 					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
-      LEVELS
-    </div>
-				</div>
+      				LEVELS
+    				</div>
+			</div>
 		
 		<div className="levelcont">
 			<div className="levelbtn">
@@ -34,7 +34,7 @@ export default function Level(){
 
             <div className="levelbtn2">
                 <Link href="normalquiz">
-				<button onClick={play135} className="font-kafeine">MID</button>
+				<button onClick={play135} className="font-kafeine">ALL OUT</button>
 				</Link>
             </div>
 
@@ -44,6 +44,9 @@ export default function Level(){
 				</Link>
             </div>
 			</div>
+			<div className="sidenote">
+				<p className="note">NOTE: The ALL OUT level has 2 extra stages, it is up to you if you want to answer it. </p>
+				</div>
 		</div>
 	</main>
 );

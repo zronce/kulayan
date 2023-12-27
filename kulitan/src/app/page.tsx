@@ -4,7 +4,9 @@ import Card from "@/components/templates/Card";
 import KapampanganFont from "@/shared/images/kapampangan-font.png";
 import KapampanganReading from "@/shared/images/reading.png";
 import KapampanganWriting from "@/shared/images/writing.png";
-import DetectLogo from "@/shared/images/camera.jpg";
+import DetectLogo from "@/shared/images/detect.png";
+import Info from "@/shared/images/info.webp";
+import Dev from "@/shared/images/dev.png";
 import useSound from 'use-sound';
 
 export default function Home() {
@@ -30,7 +32,7 @@ export default function Home() {
 				>
 					<Image
 						src={DetectLogo}
-						alt="camera"
+						alt="detect"
 						width={120}
 						height={200}
 					/>
@@ -86,6 +88,43 @@ export default function Home() {
 					<Image
 						src={KapampanganWriting}
 						alt="writing"
+						className="py-2"
+						width={120}
+						height={120}
+					/>
+				</Card>
+				</div>
+				<div onClick={play135} className="card1">
+				<Card
+					link="learn"
+					buttonTitle={
+						<>
+							<span className="font-kafeine">Learn More</span> 
+						</>
+					}
+				>
+					<Image
+						src={Info}
+						alt="learn"
+						className="py-2"
+						width={220}
+						height={120}
+					/>
+				</Card>
+				</div>
+
+				<div onClick={play135} className="card1">
+				<Card
+					link="about"
+					buttonTitle={
+						<>
+							<span className="font-kafeine">About the Team</span> 
+						</>
+					}
+				>
+					<Image
+						src={Dev}
+						alt="about"
 						className="py-2"
 						width={120}
 						height={120}

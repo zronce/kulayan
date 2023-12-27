@@ -541,7 +541,7 @@ body {
   }
   
   
-  .levelcont {
+.levelcont {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -549,8 +549,31 @@ body {
     flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
+
+.levelbtn2 button{
+	background-color: #ffffff; /* Set your desired background color */
+    color: #1c1c1c; /* Set the text color */
+    padding: 15px; /* Adjust padding as needed */
+    font-size: 70px; /* Set the font size */
+    border: none;
+    width: 350px; /* Set a fixed width for all buttons */
+    height: 250px;
+    border-radius: 10px; /* Add rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
+    margin: 20px;
+    border-bottom: 5px solid #151515;
+}
+
+.levelbtn2 button:hover {
+    color: white;
+    background-image: linear-gradient(45deg, #3498db, #db33bc); /* Gradient color on hover */
+    transform: scale(1.1);
+    transition: background-image 0.3s ease, transform 0.3s ease; /* Add animation effect */
+}
+
+
 .levelbtn button,
-.levelbtn2 button,
 .levelbtn3 button {
     background-color: #ffffff; /* Set your desired background color */
     color: #1c1c1c; /* Set the text color */
@@ -559,18 +582,21 @@ body {
     border: none;
     width: 250px; /* Set a fixed width for all buttons */
     height: 200px;
-    border-radius: 2px; /* Add rounded corners */
+    border-radius: 10px; /* Add rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
-    margin: 10px;
+    margin: 20px;
     border-bottom: 5px solid #151515;
 }
 
-.levelbtn button:hover,
-.levelbtn2 button:hover,
+.levelbtn button:hover{
+	color: white;
+    background-color: #2980b9; /* Change background color on hover */
+    transform: scale(1.1); /* Add a bounce effect on hover */
+}
 .levelbtn3 button:hover {
     color: white;
-    background-color: #2980b9; /* Change background color on hover */
+    background-color: #ff5656; /* Change background color on hover */
     transform: scale(1.1); /* Add a bounce effect on hover */
 }
 
@@ -584,8 +610,8 @@ body {
     .levelbtn2 button,
     .levelbtn3 button {
         font-size: 30px;
-        width: 200px; /* Set full width for buttons on small screens */
-        height: 80px;
+        width: 250px; /* Set full width for buttons on small screens */
+        height: 90px;
         margin: 10px 0; /* Adjust margin to separate buttons */
     }
 }
@@ -747,4 +773,21 @@ body {
 	background-color:#ffa913;
   }
 
+.sidenote{
+	align-items: center;
+	text-align: center;
+	margin: 10px;
+}
 
+.note{
+	color: #000f17;
+	font-family: "ls6";
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+	.note{
+		font-size: 16px;
+		margin: 10px;
+	}
+}

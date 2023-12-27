@@ -305,7 +305,8 @@ export default function Reading() {
 				</div>
 
 			<br></br>
-			<h1 className="title">INDUNG SULAT</h1>
+
+			<h1 className="title" id="indu">INDUNG SULAT</h1>
 			<div className="container"> 
 				<button onClick={play1} id="btn1" className="styled-button"><div className="font-kulitan">Ga</div>Ga</button>
 				<button onClick={play2} id="btn2" className="styled-button"><div className="font-kulitan">Ka</div>Ka</button>

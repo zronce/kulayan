@@ -180,7 +180,7 @@ export default function Quiz() {
             <BackArrow />
           </Link>
           <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
-    DIFFICULTY - EASY
+    DIFFICULTY - HARD
     </div>
         </div>
 
