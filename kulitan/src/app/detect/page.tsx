@@ -254,12 +254,15 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
         <input className="file-upload" type="file" accept="image/*" onChange={handleImageUpload} />
         <div id="delete-button-container"></div>
       </div>
+
   <br></br>
+  <div className="imagepreview">
       {selectedImage && (
         <div className="img-cont" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <NextImage className="imgprev" src={selectedImage} alt="Selected Preview" width={150} height={150}/>
         </div>
       )}
+  </div>
   <div className="resultsdp">
       <div className="probtext font-ls3 probability-text" id="probability-text"></div>
       <div className="font-ls4 probability-rate" id="probability-rate"></div>

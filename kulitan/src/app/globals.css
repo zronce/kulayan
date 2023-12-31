@@ -297,11 +297,13 @@ body {
 	color: #212A3E;
 }
 
-.subtitle{
-	font-family: "kulitan";
-	font-size: 30px;
-	color: #212A3E;
+@media (max-width: 800px) {
+    .pagetitle {
+		text-align: center;
+        font-size: 70px;
+    }
 }
+
 /* Object Detection Wrapper */
 .object-detection-wrapper {
 	position: relative;
@@ -342,6 +344,13 @@ body {
 	width: 150px;
 	height: 150px;
 	border-radius: 5px;
+  }
+
+
+  .imagepreview{
+	max-width: 200px;
+	max-height: 200px;
+	margin: auto;
   }
 /* Define the keyframes for the spinner animation */
 @keyframes spin {
@@ -421,13 +430,25 @@ body {
 	text-align: center;
 }
 
+@media (max-width: 800px) {
+    .qcss {
+        flex-direction: column; /* Stack items vertically on small screens */
+		width: 330px;
+	height: 250px;
+    }
+}
 .qcss h2 {
 	font-size: 150px;
 	color: #093041;
 	font-family: 'kulitan', sans-serif;
 	animation: floatAnimation 2s ease-in-out infinite alternate;
 }
-
+@media (max-width: 800px) {
+    .qcss h2 {
+        font-size: 120px;
+		
+}
+}
 @keyframes floatAnimation {
 	0% {
 		transform: translateY(0);
@@ -451,6 +472,13 @@ body {
 	text-align: center;
 	padding: 20px; 	
   }
+
+  @media (max-width: 800px) {
+    .qcont {
+        max-height: 650px;
+		
+}
+}
  
   .button-choice {
 	color: #000f17;
@@ -504,7 +532,7 @@ body {
 .loading{
 	color: #000f17;
 	font-family: "kafeine";
-	font-size: 50px;
+	font-size: 30px;
 }
 
   .answerdp{
@@ -727,7 +755,7 @@ body {
 
 /* Media Queries for responsiveness */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .quizcomplete {
         padding: 10px;
         max-width: 90%;
