@@ -19,8 +19,8 @@ export default function ObjectDetection() {
     const loadModel = async () => {
       try {
         await tf.ready();
-        const modelURL = "https://storage.googleapis.com/tm-model/QonOtK7pq/model.json";
-        const metadataURL = "https://storage.googleapis.com/tm-model/QonOtK7pq/metadata.json";
+        const modelURL = "https://storage.googleapis.com/tm-model/SuzxissLH/model.json";
+        const metadataURL = "https://storage.googleapis.com/tm-model/SuzxissLH/metadata.json";
         const model = await tmImage.load(modelURL, metadataURL);
         detectObjects(model);
         setModelLoaded(true);
@@ -38,8 +38,8 @@ export default function ObjectDetection() {
 
     if (file) {
       try {
-        const modelURL = "https://storage.googleapis.com/tm-model/QonOtK7pq/model.json";
-        const metadataURL = "https://storage.googleapis.com/tm-model/QonOtK7pq/metadata.json";
+        const modelURL = "https://storage.googleapis.com/tm-model/SuzxissLH/model.json";
+        const metadataURL = "https://storage.googleapis.com/tm-model/SuzxissLH/metadata.json";
         const model = await tmImage.load(modelURL, metadataURL);
 
         // Create an image element to display the uploaded image
