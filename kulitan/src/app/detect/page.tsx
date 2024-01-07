@@ -199,13 +199,7 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
                 50
               );
 
-              // Display "Not a Glyph" when the probability is below 70%
-              if (maxPrediction.probability < 0.7) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.font = "25px ls2";
-                ctx.fillStyle = "red";
-                ctx.fillText("Not a Kulitan Glyph", 25, 50);
-              }
+            
 
               requestAnimationFrame(detectFrame);
             }
