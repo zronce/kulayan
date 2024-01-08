@@ -332,17 +332,14 @@ body {
   .detection-video {
 	width: 100%;
 	height: auto;
-	 /* Rounded corners at the top */
-	 border-radius: 10px;
+	border-radius: 10px;
   }
-
 
   @media (max-width: 800px) {
     .detection-video {
 		border: 10px;
-        width: 600px;
-		max-height: 600px;
-		
+        width: 400px;
+		height: 400px;
 	}
 }
   
@@ -364,9 +361,6 @@ body {
 	text-align: center;
   }
   
-  
-
-
   .imagepreview{
 	max-width: 200px;
 	max-height: 200px;
