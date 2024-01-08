@@ -92,12 +92,23 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
   const videoWidth = video.videoWidth;
   const videoHeight = video.videoHeight;
   const targetAspectRatio = 1;
-  const targetWidth = Math.min(window.innerWidth, videoWidth);
-  const targetHeight = targetWidth / targetAspectRatio;
+
+  let targetWidth, targetHeight;
+
+  if (videoWidth > videoHeight) {
+    // Landscape video
+    targetWidth = Math.min(window.innerWidth, videoWidth);
+    targetHeight = targetWidth / targetAspectRatio;
+  } else {
+    // Portrait or square video
+    targetHeight = Math.min(window.innerHeight, videoHeight);
+    targetWidth = targetHeight * targetAspectRatio;
+  }
 
   canvas.width = targetWidth;
   canvas.height = targetHeight;
 };
+
 
   
 
