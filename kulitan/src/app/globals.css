@@ -320,28 +320,14 @@ body {
 	border-radius: 10px;
   }
 
-  @media (max-width: 800px) {
-    .video-canvas-wrapper {
-		border-radius: none;
-        width: 400px;
-		height: 400px;
-	}
-}
   
   /* Detection Video */
   .detection-video {
 	width: 100%;
-	height: auto;
+	height: 100%;
 	border-radius: 10px;
   }
 
-  @media (max-width: 800px) {
-    .detection-video {
-		border: 10px;
-        width: 400px;
-		height: 400px;
-	}
-}
   
   /* Detection Canvas */
   .detection-canvas {
@@ -350,11 +336,6 @@ body {
 	left: 0;
   }
 
-  @media (max-width: 800px) {
-    .detection-canvas {
-        width: 400px;
-	}
-}
   
   /* Centered Text in Object Detection Wrapper */
   .object-detection-wrapper {

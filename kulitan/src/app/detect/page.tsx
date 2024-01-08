@@ -88,17 +88,17 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
 };
 
 
-  // Function to resize the canvas based on the video's dimensions
-  const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
-    const videoWidth = video.videoWidth;
-    const videoHeight = video.videoHeight;
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-    const scale = Math.min(screenWidth / videoWidth, screenHeight / videoHeight);
+const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
+  const videoWidth = video.videoWidth;
+  const videoHeight = video.videoHeight;
+  const targetAspectRatio = 1;
+  const targetWidth = Math.min(window.innerWidth, videoWidth);
+  const targetHeight = targetWidth / targetAspectRatio;
 
-    canvas.width = videoWidth * scale;
-    canvas.height = videoHeight * scale;
-  };
+  canvas.width = targetWidth;
+  canvas.height = targetHeight;
+};
+
   
 
   return (
