@@ -341,6 +341,7 @@ body {
     .detection-video {
 		border: 10px;
         width: 600px;
+		max-height: 600px;
 		
 	}
 }
