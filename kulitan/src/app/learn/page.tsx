@@ -24,7 +24,7 @@ export default function Learn() {
 					<Link href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+					<div id="top3" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
       				LEARN MORE
     				</div>	
 			</div>
@@ -33,10 +33,6 @@ export default function Learn() {
 <div className="btnbg">
 		<Link onClick={play135} className="btn-guide" href="guide">Writing Guide</Link>
 </div>
-
-
-
-	
 	
 		<div className="contentsbg">
 		<div className="learn-content">
@@ -86,7 +82,7 @@ export default function Learn() {
 			<br></br>
 			<p className="htrcontents">Cole, Fay-Cooper. (1912) Chinese Pottery in the Philippines. Field Museum of Natural History Anthropological Series, Vol. 12 (1), Chicago.</p>
 			<br></br>
-			<p className="htrcontents">Constitution of the Republic of the Philippines (1987). In Chan Robles Virtual Law Library. Retrieved June 6, 2009 from <Link className="linked" href="http://www.chanrobles.com/article14language.htm" target="_blank">http://www.chanrobles.com/article14language.htm</Link></p>
+			<p className="htrcontents">Constitution of the Republic of the Philippines (1987). In Chan Robles Virtual Law Library. Retrieved June 6, 2009 from <Link className="linked" href="http://www.chanrobles.com/article14language.htm" target="_blank">Charoboles.com</Link>.</p>
 			<br></br>
 			<p className="htrcontents">Defenders of the Indigenous Languages of the Archipelago (DILA). (2007). Filipino is not our language. Angeles City, Pampanga: Defenders of the Indigenous Languages of the Archipelago (DILA).</p>
 			<br></br>
@@ -108,15 +104,46 @@ export default function Learn() {
 			<br></br>
 			<p className="htrcontents">Mas, Sinibaldo de (1843). <Link className="linked" href="https://books.google.com.ph/books?id=rbM9AAAAIAAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false" target="_blank">Informe sobre el estado de las Islas Filipinas en 1842</Link>. Madrid. Vol 1.</p>
 			<br></br>
-			<p className="htrcontents"></p>
-
-
+			<p className="htrcontents">Morga, Antonio de. (1609) Sucesos de las Islas Filipinas. Obra publicada en Mejico el año de 1609 nuevamente sacada a luz y anotada por Jose Rizal y precedida de un prologo del Prof. Fernando Blumentritt, Impresion al offset de la Edicion Anotada por Rizal, Paris 1890. [Reprinted 1991] Manila, Philippines: National Historical Institute.</p>
+			<br></br>
+			<p className="htrcontents">Murillo Velarde, Pedro. (1744). Mapa de las islas Filipinas. In The Norman B. Leventhal Map Center at the Boston Public Library.</p>
+			<br></br>
+			<p className="htrcontents">Pangilinan, Michael R.M. (2006a) <Link className="linked" href="https://sil-philippines-languages.org/ical/papers/pangilinan-Dispute%20on%20Orthography.pdf" target="_blank">Kapampangan or Capampangan: Settling the Dispute on the Kapampangan Romanized Orthography</Link>. A paper presented at the 10th International Conference on Austronesian Linguistics, Puerto Princesa, Palawan, Philippines. January 2006.</p>
+			<br></br>
+			<p className="htrcontents">Pangilinan, Michael R.M. (2009b). <Link className="linked" href="https://www.academia.edu/5419261/Kapampangan_Lexical_Borrowing_from_Tagalog_Endangerment_rather_than_Enrichment" target="_blank">Kapampangan lexical borrowing from Tagalog: endangerment rather than enrichment</Link>. A paper presented at the 11th International Conference on Austronesian Linguistics, June 21-25, 2009, Aussois, France.</p>
+			<br></br>
+			<p className="htrcontents">San Agustin, Gaspar de. (1699). Conquistas de las Islas Philipinas 1565-1615. [1998 Bilingual Ed.: Spanish & English] Translated by Luis Antonio Mañeru. Published by Pedro Galende, OSA: Intramuros, Manila.</p>
+			<br></br>
+			<p className="htrcontents">San Antonio, Juan Francisco de. (1738-1744). Cronicas de la apostolic provincial de S. Gregorio de religiosos de n.s.p. San Francisco en las islas Philipinas, China, Japon. Sampaloc: Juan del Sotillo.</p>
+			<br></br>
+			<p className="htrcontents">Santiago, Luciano P.R. (1990a) The Houses of Lakandula, Matanda, and Soliman [1571-1898]: Genealogy and Group Identity. In Philippine Quarterly of Culture and Society, Vol. 18, No. 1.</p>
+			<br></br>
+			<p className="htrcontents">Scott, William Henry. (1984). Prehispanic Source Materials for the Study of Philippine History. Quezon City: New Day Publishers.</p>
+			<br></br>
+			<p className="htrcontents">Scott, William Henry. (1994). Barangay: Sixteenth- Century Philippine Culture and Society, Quezon City: Ateneo de Manila University Press.</p>
+			<br></br>
+			<p className="htrcontents">Tauchi Yonesaburo (田内米三郎). (1853). Toukikou (陶 器考: Investigations of Pottery). See English Translation in Cole, Fay-Cooper. (1912).</p>
+			<br></br>
+			<p className="htrcontents">Tayag, Katoks (Renato). (1985). The Vanishing Pampango Nation. Recollections & Digressions. Escolta, Manila: Philnabank Club c/o Philippine National Bank.</p>
+			<br></br>
+			<p className="htrcontents">Wang, Teh-Ming(王徳明). (1989). Sino Suluan Historical Relations in Ancient Texts. (Doctoral dissertation, University of the Philippines, Diliman, Quezon City, 2001). Unpublished typescript.</p>
+			<br></br>
+			<p className="htrcontents">Wang, Zhenping. (2008). Reading Song-Ming Records on the Pre-colonial History of the Philippines. 東アジ ア文化交渉研究 創刊号.[Higashi Ajia bunka kōshō kenkyū, No.1](2008): 249-260.</p>
+			<br></br>
+			<p className="htrcontents">Wade, Geoff. [tr.] (2005) Southeast Asia in the Ming Shi-lu: an open access resource. Singapore: Asia Research Institute and the Singapore E-Press, National University of Singapore: <Link className="linked" href="http://epress.nus.edu.sg/msl/place/1062" target="_blank">National University of Singapore</Link>.</p>
+			<br></br>
+			<p className="htrcontents">Zhang Xie (張燮). (1617). Dong Xi Yang Gao [東西洋考] (A study of the Eastern and Western Oceans). <Link className="linked" href="http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html" target="_blank">http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html</Link>, Volume (分冊) 13:9.</p>
 			</div>
 		
 		</div>
+		<br></br>
+		<div className="bttcont">
+				<a onClick={play135} className="btt" href="#top3">BACK TO TOP</a>
+			</div>
+			<br></br>
+
         </div>
 
         </main>
-    );
-    
+    ); 
 }
