@@ -223,8 +223,6 @@ body {
 	color: #161A30;
   }
 
-
-
 .quiz {
     font-size: 40px;
     display: flex;
@@ -256,7 +254,7 @@ body {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 767px) {
+@media (max-width: 800px) {
     .quiz {
         flex-direction: column; /* Stack items vertically on small screens */
     }
@@ -273,7 +271,7 @@ body {
 .Label1 {
 	color: #ffffff;
 	font-family: 'ls4';
-	font-size: 20px;
+	font-size: 15px;
   }
 
   
@@ -335,17 +333,16 @@ body {
 	top: 0;
 	left: 0;
   }
-
   
-  /* Centered Text in Object Detection Wrapper */
   .object-detection-wrapper {
 	text-align: center;
   }
   
   .imagepreview{
-	max-width: 200px;
-	max-height: 200px;
-	margin: auto;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px; /* Adjust the margin-top as needed */
   }
 /* Define the keyframes for the spinner animation */
 @keyframes spin {
@@ -353,42 +350,102 @@ body {
 	100% { transform: rotate(360deg); }
   }
   
-
-.resultsdp{
-
-	width: 50%;
-	border-radius: 5px;
+.resultbg{
+	background-color: #263c44;
+	border-radius: 0px 0px 10px 10px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
+	width: 50%;
+	
+}
+.resultsdp{
+	font-family: 'kafeine';
+	font-size: 25px;
+	width: 50%;
+	border-radius: 10px 10px 0px 0px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
 	background-color: #000f17;
 }
 
-.probtext{
-	font-size: 20px;
+@media (max-width: 800px) {
+    .resultsdp {
+		font-size: 20px;
+    }
 }
-  /* Style for the loading spinner container */
+
+.imgprev {
+	border-radius: 10px;
+	transition: transform 0.3s ease;
+  }
+  
+  .imgprev:hover {
+	transform: rotate(10deg);
+  }
+  
+
+.delete-button{
+	font-family: 'kafeine';
+	margin: 10px;
+	background-color: #ff4747;
+	border-radius: 5px;
+	width: 100px;
+	height: 40px;
+}
+
+.delete-button:hover{
+	background-color: #8f0808;
+}
+
+.result-text {
+    font-family: 'ls4';
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    
+    animation: typing 3s steps(40);
+}
+
+@media (max-width: 800px) {
+    .result-text {
+        font-size: 20px;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
   .loading-bar {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	height: 50vh; /* Adjust as needed */
+	height: 50vh;
   }
   
-  /* Style for the loading text */
   .loading-bar p {
-	margin-bottom: 10px; /* Adjust as needed */
+	margin-bottom: 10px; 
   }
   
-  /* Style for the loading spinner */
+
   .loading-spinner {
-	border: 6px solid #70f0fe;
+	border: 6px solid #ffffff;
 	border-top: 4px solid #011320;
 	border-radius: 50%;
 	width: 40px;
 	height: 40px;
-	animation: spin 1s linear infinite; /* Apply the spin animation */
+	animation: spin 1s linear infinite; 
   }
   
   .file-upload{
@@ -399,14 +456,22 @@ body {
 	font-size: 15px;
   }
 
-  .file-upload::-webkit-file-upload-button{
-	background-image: linear-gradient(45deg, indigo, pink);
-	color: #f2f2f2;
-	padding: 8px 16px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-  }
+  .file-upload::-webkit-file-upload-button {
+    background-image: linear-gradient(55deg, indigo, rgb(117, 37, 197), violet, indigo, rgb(22, 145, 186));
+    background-size: 300% 300%;
+    color: #f2f2f2;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-position 0.5s;
+}
+
+.file-upload::-webkit-file-upload-button:hover {
+    background-position: 100% 0;
+}
+
+  
 
 
   /* global.css */
@@ -522,12 +587,11 @@ body {
 	}
   }
   
-  
 
 .loading{
 	color: #000f17;
 	font-family: "kafeine";
-	font-size: 30px;
+	font-size: 20px;
 }
 
   .answerdp{
@@ -813,4 +877,99 @@ body {
 		font-size: 16px;
 		margin: 10px;
 	}
+}
+
+.learn-content{
+	font-family: 'kafeine';
+	font-size: 50px;
+	color: #000f17;
+	margin: auto;
+}
+
+.titlehistory{
+	text-align: center;
+}
+
+.contentsbg {
+    background-color: white;
+    color: #000f17;
+    max-width: 1000px;
+    margin: auto;
+	border-radius: 10px;
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.htrcontents {
+    text-align: justify;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 800px) {
+    .contentsbg {
+        width: 90%;
+    }
+}
+
+.historypng{
+	margin: auto;
+	border-radius: 10px;
+}
+
+.btnbg{
+	height: 100px;
+	margin: auto;
+}
+
+.btn-guide{
+	font-family: 'kafeine';
+	background-color: #0073a1; /* Set your desired background color */
+    color: #ffffff; /* Set the text color */
+    padding: 15px; /* Adjust padding as needed */
+    font-size: 50px; /* Set the font size */
+    border: none;
+    width: 500px; /* Set a fixed width for all buttons */
+    height: 200px;
+    border-radius: 4px; /* Add rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
+    margin: 10px;
+    border-bottom: 5px solid #151515;
+}
+
+.btn-guide:hover{
+	color: white;
+    background-color: #113750; /* Change background color on hover */
+    transform: scale(1.1); /* Add a bounce effect on hover */
+}
+  
+@media (max-width: 800px) {
+
+    .btn-guide {
+        font-size: 30px;
+        width: 300px; /* Set full width for buttons on small screens */
+        height: 150px;
+        margin: 10px 0; /* Adjust margin to separate buttons */
+    }
+}
+
+.spantxt{
+	font-style: italic;
+	font-size: 20px;
+	text-align: center;
+    display: block; /* Ensures the span behaves as a block-level element */
+    width: 100%;
+}
+
+.spantxt2{
+	font-style: italic;
+	font-size: 18px;
+	text-align: center;
+	display: block;
+}
+
+.spantxt3{
+	font-style: italic;
+	font-size: 15px;
+	text-align: center;
+	display: block;
 }
