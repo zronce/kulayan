@@ -290,7 +290,7 @@ export default function Reading() {
 					<Link href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+					<div id="top2" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
       PAMAMASA
     </div>
 					
@@ -455,10 +455,13 @@ export default function Reading() {
 				<button onClick={play132}id="btn132" className="styled-button"><div className="font-kulitan">ken</div>ken</button>
 				<button onClick={play133}id="btn133" className="styled-button"><div className="font-kulitan">kon</div>kon</button>
 				</div>
+				<div className="bttcont">
+				<a onClick={play134} className="btt" href="#top2">BACK TO TOP</a>
+			
 			</div>
-			<script>
-				
-			</script>
+			<br></br>
+			</div>
+			
 		</main>
 		
 	);

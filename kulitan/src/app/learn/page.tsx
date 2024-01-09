@@ -36,11 +36,12 @@ export default function Learn() {
 
 
 
-	<div className="learn-content">
-		<h1 className="titlehistory">History</h1>
-	</div>
+	
 	
 		<div className="contentsbg">
+		<div className="learn-content">
+		<h1 className="titlehistory">History</h1>
+	</div><br></br>
 			<Image className="historypng" src={History} alt="history"></Image>
 			<p className="htrcontents">Long before the idea of a Filipino nation was even conceived, the Kapampangan, Butuanon, Tausug. Magindanau, Hiligaynon, Sugbuanon, Waray, Iloko, Sambal and many other ethnolinguistic groups within the archipelago, already existed as bangså or nations in their own right. Many of these nations formed their own states and principalities centuries before the Spaniards created the Philippines in the late 16th century. The oldest of these states include Butuan (蒲 端) which existed on Chinese records as early as 1001 C.E., Sulu (蘇祿) in 1368 C.E. and the Kingdom of Luzon (呂宋国) in 1373 C.E. These three sovereign states were ruled by kings (國王) and not by chieftains according to Chinese historical records (Zhang, 1617; Scott 1989; Wang 1989; Wade, 2005 and Wang, 2008).</p>
 			<br></br>
@@ -72,6 +73,44 @@ export default function Learn() {
 			<br></br>
 			<div className="learn-content">
 			<h1 className="titlehistory">References</h1>
+			<br></br>
+			<p className="htrcontents">Avila, Bobit. (2007 August 24). Ethnic cleansing our own Filipino brethren? In The Philippine Star.</p>
+			<br></br>
+			<p className="htrcontents">Retrieved 2012 March 16 from http://www.philstar.com/Article.aspx?articleld=15037. (Removed)</p>
+			<br></br>
+			<p className="htrcontents">Beyer, Henry Otley. (1918). Ethnography of the Pampangan People: A Comprehensive Collection of Original Sources. Vol. 1& 2. Manila, Philippines. [Microfilm].</p>
+			<br></br>
+			<p className="htrcontents">Beyer, Henry Otley. (1943). A Brief History of Fort Santiago. Manila (no publisher).</p>
+			<br></br>
+			<p className="htrcontents">Cavada, Agustin de la. (1876). Historia geográfica, geológica y estadistica de Filipinas. 2 vols. Manila: Ramirez y Giraudier.</p>
+			<br></br>
+			<p className="htrcontents">Cole, Fay-Cooper. (1912) Chinese Pottery in the Philippines. Field Museum of Natural History Anthropological Series, Vol. 12 (1), Chicago.</p>
+			<br></br>
+			<p className="htrcontents">Constitution of the Republic of the Philippines (1987). In Chan Robles Virtual Law Library. Retrieved June 6, 2009 from <Link className="linked" href="http://www.chanrobles.com/article14language.htm" target="_blank">http://www.chanrobles.com/article14language.htm</Link></p>
+			<br></br>
+			<p className="htrcontents">Defenders of the Indigenous Languages of the Archipelago (DILA). (2007). Filipino is not our language. Angeles City, Pampanga: Defenders of the Indigenous Languages of the Archipelago (DILA).</p>
+			<br></br>
+			<p className="htrcontents">Del Corro, Anicia. (2000). Language Endangerment and Bible Translation. Malaga, Spain: Universal Bible Society Triennial Translation Workshop.</p>
+			<br></br>
+			<p className="htrcontents">Dizon, Eusebio et al. (5 October 1999). Southeast Asian Protohistoric Archaeology at Porac, Pampanga, Central Luzon, Philippines. Mid-Year Progress Report. Archaeological Studies Program. University of the Philippines at Diliman, Quezon City, Philippines.</p>
+			<br></br>
+			<p className="htrcontents">Henson, Mariano A. (1965). The Province of Pampanga and Its Towns: A.D. 1300-1965, 4th ed. revised. Angeles City: Mariano A. Henson.</p>
+			<br></br>
+			<p className="htrcontents">Larkin, John A. (1972). The Pampangans: Colonial Society in a Philippine Province. 1993 Philippine Edition. Quezon City: New Day Publishers.</p>
+			<br></br>
+			<p className="htrcontents">Loarca, Miguel de. (1583) Relacion de las Yslas Filipinas. In E. Blair and J. Robertson, eds. and trans. The Philippine Islands, 1493-1898, volume 5, page 34 - 187.</p>
+			<br></br>
+			<p className="htrcontents">Mallat, Jean. (1846). Les Philippines: histoire, geographie, mœurs, agriculture, industrie, commerce des colonies Espagnoles dans l&#39;Oceanie. Paris: Arthus Bertrand. [English ed. 1998] Santillan, P. and Castrence, L. (Transl.), Manila: National Historical Institute.</p>
+			<br></br>
+			<p className="htrcontents">Mantawe, Herb. (1998). Ethnic Cleansing in the Philippines. [2012 March 11 ed.]. Retrieved March 23, 2012 from <Link className="linked" href="http://dila.ph/ethnic.pdf" target="_blank">http://dila.ph/ethnic.pdf</Link></p>
+			<br></br>
+			<p className="htrcontents">Martinez, David C. (2004). A Country of Our Own: Partitioning the Philippines. Los Angeles, California USA: Bisaya Books.</p>
+			<br></br>
+			<p className="htrcontents">Mas, Sinibaldo de (1843). <Link className="linked" href="https://books.google.com.ph/books?id=rbM9AAAAIAAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=onepage&q&f=false" target="_blank">Informe sobre el estado de las Islas Filipinas en 1842</Link>. Madrid. Vol 1.</p>
+			<br></br>
+			<p className="htrcontents"></p>
+
+
 			</div>
 		
 		</div>

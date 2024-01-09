@@ -703,6 +703,9 @@ body {
     }
 }
 
+.card1{
+	color: white;
+}
 
 .card1:hover {
   transform: translateY(-5px);
@@ -880,14 +883,29 @@ body {
 }
 
 .learn-content{
-	font-family: 'kafeine';
-	font-size: 50px;
-	color: #000f17;
 	margin: auto;
 }
 
-.titlehistory{
-	text-align: center;
+.titlehistory {
+    font-family: 'kafeine';
+	background-color: #001a1d;
+    font-size: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+    color: #fdfdfd;
+	border-radius: 20px;
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+
+    .titlehistory {
+        font-size: 20px;
+		border-radius: 10px;
+        margin-left: 5px;
+		margin-right: 5px;
+    }
 }
 
 .contentsbg {
@@ -897,6 +915,7 @@ body {
     margin: auto;
 	border-radius: 10px;
     padding: 20px; /* Add padding for better spacing */
+	box-shadow: 5px 5px 10px #a8d9ff;
 }
 
 .htrcontents {
@@ -973,3 +992,81 @@ body {
 	text-align: center;
 	display: block;
 }
+
+.spantxt4{
+	color: #000f17;
+	font-style: italic;
+	font-size: 15px;
+	text-align: center;
+	display: block;
+}
+
+.linked{
+	color: #ffb218;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+
+.gridbtn {
+	background-color: white;
+	border-radius: 5px;
+	color: #000f17;
+	font-family: 'ls2';
+	position: relative;
+	margin: auto;
+	padding-bottom: 10px;
+	width: 300px;
+	border-bottom: 4px solid #000f17;
+  }
+  
+  .dropdown-content {
+	font-family: 'ls5';
+	display: none;
+	position: absolute;
+	background-color: #ffffff;
+	box-shadow: 5px 5px 10px #a8d9ff, -5px -5px 10px rgba(255, 255, 255, 0.5);
+	padding: 10px;
+	z-index: 1;
+	min-width: 160px;
+	border-radius: 4px;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+  }
+  
+  .gridbtn:hover .dropdown-content {
+	display: block;
+	opacity: 1;
+  }
+  
+  .dropdown-content a {
+	display: block;
+	padding: 8px 12px;
+	text-decoration: none;
+	color: #333;
+	transition: background-color 0.3s;
+  }
+  
+  .dropdown-content a:hover {
+	color: white;
+	font-family: 'ls6';
+	background-color: #00212c;
+  }
+  
+.icon{
+	margin-left: 10px;
+	margin-top: 10px
+}
+
+.bttcont{
+	margin: auto;
+}
+
+.btt{
+	color: #000f17;
+	font-family: 'KAFEINE';
+	font-size: 20px;
+	cursor: pointer;
+	text-decoration: underline 2px;
+}
+

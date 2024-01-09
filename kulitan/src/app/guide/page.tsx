@@ -38,7 +38,10 @@ import History35 from "@/shared/images/kambal_siuala_diagram_3.png";
 import History36 from "@/shared/images/pamakamate_siuala.png";
 import History37 from "@/shared/images/terminating_vowel_table.png";
 
+
 export default function Guide() {
+	const soundFile135 = '/audio/click2.mp3';
+	const [play135] = useSound(soundFile135);
     return (
         <main className={`min-h-screen flex min-w-screen flex-col items-center justify-between gap-5 bg-gradient-container relative`}
         >
@@ -48,16 +51,48 @@ export default function Guide() {
 					<Link href="./learn" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
-					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
+					<div id="top" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
       				WRITING GUIDE
     				</div>
 			</div>
 
-			<div className="learn-content">
-			<h1 className="titlehistory" id="wh1">Writing Direction</h1>
-		</div>
+			<div className="learn-contents">
+			<span className="spantxt4">Written by Siuálâ Ding Meángûbié. <Link className="linked" href="https://siuala.com/" target="_blank">More info.</Link></span>
+			</div>
+
+<div className="gridbtn" onClick={play135}>
+<svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512" className="icon">
+        <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM64 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+      </svg>
+
+  <div className="dropdown-content" onClick={play135}>
+    <a onClick={play135} href="#wh1">Writing Direction</a>
+    <a onClick={play135} href="#wh2">Mother and Child</a>
+    <a onClick={play135} href="#wh3">The Consonantal Characters</a>
+	<a onClick={play135} href="#wh4">The Vowel Characters</a>
+	<a onClick={play135} href="#wh5">The Offspring Characters</a>
+	<a onClick={play135}href="#wh6">Changing the Default Vowel sound of &#39;A&#39; to &#39;I&#39;</a>
+	<a onClick={play135}href="#wh7">Changing the Default Vowel sound of &#39;A&#39; to &#39;U&#39;</a>
+	<a onClick={play135}href="#wh8">Altering the Vowel Glyph I as the consonant Y</a>
+	<a onClick={play135}href="#wh9">Altering the Vowel Glyph U as the consonant W</a>
+	<a onClick={play135}href="#wh10">Changing the Default Vowel sound &#39;A&#39; to &#39;E&#39;</a>
+	<a onClick={play135}href="#wh11">Changing the Default Vowel sound &#39;A&#39; to &#39;O&#39;</a>
+	<a onClick={play135}href="#wh12">Stress and Accents in Kulitan</a>
+	<a onClick={play135}href="#wh13">Lengthening the inherent vowel &#39;A&#39;</a>
+	<a onClick={play135}href="#wh14">Lengthening the offspring vowel sound &#39;I&#39;</a>
+	<a onClick={play135}href="#wh15">Lengthening the offspring vowel sound &#39;U&#39;</a>
+	<a onClick={play135}href="#wh16">Terminating the default vowel sound</a>
+  </div>
+</div>
+
+
+			
 
 		<div className="contentsbg">
+		<div className="learn-content">
+			<h1 className="titlehistory" id="wh1">Writing Direction</h1>
+		</div>
+		<br></br>
 			<Image className="historypng" src={History6} alt="history6"></Image>
 			<br></br>
 			<p className="htrcontents">Figure 1. The Kapampangan verse that explains why Kulitan is written top to bottom, right to left.</p>
@@ -74,11 +109,13 @@ export default function Guide() {
 			<span className="spantxt3">Writing Rules</span>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh2">Mother and Child</h1>
-			</div>	
+	
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh2">Mother and Child</h1>
+			</div>
+			<br></br>
 					<Image className="historypng" src={History8} alt="history8"></Image>
 					<span className="spantxt2">Indû at Anak</span>
 					<span className="spantxt3">Mother and Child</span>
@@ -94,11 +131,13 @@ export default function Guide() {
 					<Image className="historypng" src={History9} alt="history9"></Image>
 				</div>
 
+		
+			
+			<div className="contentsbg">
 			<div className="learn-content">
 				<h1 className="titlehistory" id="wh3">The Consonantal Characters</h1>
 			</div>
-			
-			<div className="contentsbg">
+			<br></br>
 			<Image className="historypng" src={History10} alt="history10"></Image>
 			<span className="spantxt2">Indúng Súlat: Kulit a Mágkas</span>
 					<span className="spantxt3">The Consonantal Characters</span>
@@ -122,11 +161,12 @@ export default function Guide() {
 			<p className="htrcontents">While all other glyphs in the other indigenous scripts within the archipelago resemble one another, Kulitan has also developed unique and distinct character shapes that are different from Baybayin, particularly the Kulit Magkas or consonantal characters Ga (<span className="font-kulitan">ga</span>), Ta (<span className="font-kulitan">ta</span>). Sa (<span className="font-kulitan">sa</span>) that are consistent in appearance in the various cuadernos and abecedarios that have appeared during the Spanish era (Benavente, 1699; Mas, 1842 and Marcilla, 1895) and the modern era (Hilario, 1962, Henson, 1965 and Pangilinan, 1995) and the plain vertical line for LA found in seve century Kapampangan signatures (Miller, 2 2012b).</p>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh4">The Vowel Characters</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh4">The Vowel Characters</h1>
+			</div><br></br>
 			<Image className="historypng" src={History12} alt="history12"></Image>
 			<span className="spantxt2">Indúng Súlat: Kulit a Sisiuálâ</span>
 					<span className="spantxt3">The Vowel Characters</span>
@@ -143,11 +183,12 @@ export default function Guide() {
 			<p className="htrcontents">The Kambal Siuala or &#34;twin&#34; vowels seen on Table 2 represent the lengthening of the vowel sounds and the glottal stops in the Kapampangan language. These are usually represented by the diacritical marks sokúrut (&#39;) and télaturung (^) when writing the Kapampangan language in the Latin script. W stand alone, the kambal siuálá or &#34;twin&#34; vowels are as follows:-A-/-A (<span className="font-kulitan">aa</span>)-I-/-I (<span className="font-kulitan">ii</span>) and -Ú-/-Ú (<span className="font-kulitan">uu</span>).</p>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh5">The Offspring Character</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh5">The Offspring Characters</h1>
+			</div><br></br>
 			<Image className="historypng" src={History14} alt="history14"></Image>
 			<span className="spantxt2">Anak Súlat</span>
 					<span className="spantxt3">The Offspring Character</span>
@@ -163,11 +204,12 @@ export default function Guide() {
 			<p className="htrcontents">Table 3b. Table of Indung Súlat and their Anak Súlat</p>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh6">Changing the Default Vowel sound of &#39;A&#39; to &#39;I&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh6">Changing the Default Vowel sound of &#39;A&#39; to &#39;I&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History17} alt="history17"></Image>
 			<span className="spantxt2">Pámanganak Ning Indûng Súlat King Siuâlang &#39;I&#39;</span>
 					<span className="spantxt3">Changing the Default Vowel sound of &#39;A&#39; to &#39;I&#39;</span>
@@ -179,11 +221,12 @@ export default function Guide() {
 			<Image className="historypng" src={History18} alt="history18"></Image>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh7">Changing the Default Vowel sound of &#39;A&#39; to &#39;U&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh7">Changing the Default Vowel sound of &#39;A&#39; to &#39;U&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History19} alt="history19"></Image>
 			<span className="spantxt2">Pámanganak Ning Indûng Sulat King Siuâlang &#39;U&#39;</span>
 					<span className="spantxt3">Changing the Default Vowel sound of &#39;A&#39; to &#39;U&#39;</span>
@@ -195,12 +238,10 @@ export default function Guide() {
 			<Image className="historypng" src={History20} alt="history20"></Image>
 			</div>
 
-
+			<div className="contentsbg">
 			<div className="learn-content">
 				<h1 className="titlehistory" id="wh8">Altering the Vowel Glyph I as the consonant Y</h1>
-			</div>
-
-			<div className="contentsbg">
+			</div><br></br>
 			<Image className="historypng" src={History21} alt="history21"></Image>
 			<span className="spantxt2">Ding Ának Ning Indûng Súlat A &#39;I&#39;(<span className="font-kulitan">i</span>)</span>
 					<span className="spantxt3">Altering the Vowel Glyph I as the consonant Y</span>
@@ -215,11 +256,12 @@ export default function Guide() {
 			</div>
 
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh9">Altering the Vowel Glyph U as the consonant W</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh9">Altering the Vowel Glyph U as the consonant W</h1>
+			</div><br></br>
 			<Image className="historypng" src={History23} alt="history23"></Image>
 			<span className="spantxt2">Ding Ának Ning Indûng Súlat A &#39;U&#39;(<span className="font-kulitan">u</span>)</span>
 					<span className="spantxt3">Altering the Vowel Glyph U as the consonant W</span>
@@ -236,11 +278,12 @@ export default function Guide() {
 			</div>
 
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh10">Changing the Default Vowel sound &#39;A&#39; to &#39;E&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh10">Changing the Default Vowel sound &#39;A&#39; to &#39;E&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History25} alt="history25"></Image>
 			<span className="spantxt2">Pámanganak Ning Indûng Súlat King Siuálâng &#39;E&#39;</span>
 					<span className="spantxt3">Changing the Default Vowel sound &#39;A&#39; to &#39;E&#39;</span>
@@ -252,11 +295,12 @@ export default function Guide() {
 			<Image className="historypng" src={History26} alt="history26"></Image>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh11">Changing the Default Vowel sound &#39;A&#39; to &#39;O&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh11">Changing the Default Vowel sound &#39;A&#39; to &#39;O&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History27} alt="history27"></Image>
 			<span className="spantxt2">Pámanganak Ning Indûng Súlat King Siuálâng &#39;O&#39;</span>
 					<span className="spantxt3">Changing the Default Vowel sound &#39;A&#39; to &#39;O&#39;</span>
@@ -269,11 +313,12 @@ export default function Guide() {
 			</div>
 
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh12">Stress and Accents in Kulitan</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh12">Stress and Accents in Kulitan</h1>
+			</div><br></br>
 			<Image className="historypng" src={History29} alt="history29"></Image>
 			<span className="spantxt2">Ding Kambal Siuálâ</span>
 			<span className="spantxt3">Stress and Accents in Kulitan</span>
@@ -293,11 +338,12 @@ export default function Guide() {
 			<p className="htrcontents">In Kulitan however, the placement of stress in a syllable is quite evident because of the Kambal Siuála. Unlike the Latin script, no two words are spelled the same way in Kulitan. Notice Mariano Henson&#39;s examples again written in Kulitan above. Unlike in the Latin script, none of the three words in the examples are spelled the same way in Kulitan. The placement extra glyph &#39;A&#39; (<span className="font-kulitan">a</span>) to form the Kambal Síuála -Á-/-Â (<span className="font-kulitan">aa</span>) can be readily seen.</p>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh13">Lengthening the inherent vowel &#39;A&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh13">Lengthening the inherent vowel &#39;A&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History31} alt="history31"></Image>
 			<span className="spantxt2">Kambal Siuálâ &#39;A&#39;</span>
 					<span className="spantxt3">Lengthening the inherent vowel &#39;A&#39;</span>
@@ -310,11 +356,12 @@ export default function Guide() {
 			<br></br>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh14">Lengthening the offspring vowel sound &#39;I&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh14">Lengthening the offspring vowel sound &#39;I&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History33} alt="history33"></Image>
 			<span className="spantxt2">Kambal Siuálâ &#39;I&#39;</span>
 					<span className="spantxt3">Lengthening the offspring vowel sound &#39;I&#39;</span>
@@ -327,11 +374,12 @@ export default function Guide() {
 			<br></br>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh15">Lengthening the offspring vowel sound &#39;U&#39;</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh15">Lengthening the offspring vowel sound &#39;U&#39;</h1>
+			</div><br></br>
 			<Image className="historypng" src={History33} alt="history33"></Image>
 			<span className="spantxt2">Kambal Siuálâ &#39;U&#39;</span>
 					<span className="spantxt3">Lengthening the offspring vowel sound &#39;U&#39;</span>
@@ -344,11 +392,12 @@ export default function Guide() {
 			<br></br>
 			</div>
 
-			<div className="learn-content">
-				<h1 className="titlehistory" id="wh16">Terminating the default vowel sound</h1>
-			</div>
+			
 
 			<div className="contentsbg">
+			<div className="learn-content">
+				<h1 className="titlehistory" id="wh16">Terminating the default vowel sound</h1>
+			</div><br></br>
 			<Image className="historypng" src={History36} alt="history36"></Image>
 			<span className="spantxt2">Pákamate Siuálâ</span>
 					<span className="spantxt3">Terminating the default vowel sound</span>
@@ -366,6 +415,10 @@ export default function Guide() {
 			<Image className="historypng" src={History37} alt="history37"></Image>
 			<p className="htrcontents">Table 6: Terminating the inherent vowel sound &#39;A&#39;</p>
 			</div>
+			<div className="bttcont">
+				<a onClick={play135} className="btt" href="#top">BACK TO TOP</a>
+			</div>
+			<br></br>
 
 	</div>
 </main>
