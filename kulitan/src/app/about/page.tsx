@@ -40,7 +40,6 @@ export default function About() {
 				<h3>Adrian Kyle Batac</h3>
 				<h5>Developer</h5>
 				<div className="icons">
-					
 					<a href="https://www.facebook.com/kylebtc" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
 					<a href="mailto:batac.ak.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
 				</div>
