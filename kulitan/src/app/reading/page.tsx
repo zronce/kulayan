@@ -287,7 +287,7 @@ export default function Reading() {
 			<div className="w-full flex flex-col gap-6">
 				<div className="w-full flex justify-center items-center relative h-[49px]">
 					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
-					<Link href="/" className="absolute left-5 z-10">
+					<Link onClick={play134} href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
 					<div id="top2" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
@@ -308,7 +308,7 @@ export default function Reading() {
 			<br></br>
 			<br></br>
 			<h2 className="titlebtns">Tap the buttons for sounds</h2>
-			<h1 className="title" id="indu">INDUNG SULAT</h1>
+			<h1 className="title" id="indu">INDÛNG SÚLAT</h1>
 			<div className="container"> 
 				<button onClick={play1} id="btn1" className="styled-button"><div className="font-kulitan">Ga</div>Ga</button>
 				<button onClick={play2} id="btn2" className="styled-button"><div className="font-kulitan">Ka</div>Ka</button>
@@ -334,7 +334,7 @@ export default function Reading() {
 				<button onClick={play19} id="btn19" className="styled-button"><div className="font-kulitan">uu</div>ú/û</button>
 				</div>
 
-			<h1 className="title">ANAK SULAT</h1>
+			<h1 className="title">ANAK SÚLAT</h1>
 			<div className="container">
 				
 				<button onClick={play20} id="btn20" className="styled-button"><div className="font-kulitan">gaa</div>gá/gâ</button>
@@ -446,7 +446,7 @@ export default function Reading() {
 				<button onClick={play125}id="btn125" className="styled-button"><div className="font-kulitan">wa</div>wa</button>
 				
 				</div>
-				<h1 className="title">PAKAMATE SIUALA</h1>
+				<h1 className="title">PAKAMATÉ SIUÁLÂ</h1>
 				<div className="container">
 				<button onClick={play126}id="btn126" className="styled-button"><div className="font-kulitan">kan</div>kan</button>
 				<button onClick={play127}id="btn127" className="styled-button"><div className="font-kulitan">kin</div>kin</button>

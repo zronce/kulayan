@@ -218,7 +218,7 @@ body {
 
 /*title*/
 .title {
-	font-family: "kafeine";
+	font-family: "ls1";
 	font-size: 50px;
 	color: #161A30;
   }
@@ -233,26 +233,60 @@ body {
 
 .qzbtn {
     background-color: #ffffff; /* Set your desired background color */
-    color: #1c1c1c; /* Set the text color */
+    color: #ffffff; /* Set the text color */
     padding: 15px; /* Adjust padding as needed */
     font-size: 70px; /* Set the font size */
     border: none;
     width: 500px; /* Set a fixed width for all buttons */
     height: 200px;
-    border-radius: 2px; /* Add rounded corners */
+    border-radius: 20px; /* Add rounded corners */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
     margin: 10px;
     border-bottom: 5px solid #151515;
-	
+	background-image: linear-gradient(45deg, #2c4bc7,  #3fa7e8, rgb(46, 247, 230));
+    background-size: 200% 200%;
+    transition: background-color 0.3s ease, transform 0.3s ease 0.1s; /* Add smooth transition effects with a slight delay */
+    animation: gradientAnimation 3s ease 1s infinite; /* Add a 1-second delay to the animation */
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Hover effect */
 .qzbtn:hover {
     color: white;
     background-color: #2980b9; /* Change background color on hover */
-    transform: scale(1.1); /* Add a bounce effect on hover */
+    transform: scale(0.95); /* Scale down on hover to simulate a pressed effect */
+    animation-play-state: paused; /* Pause the animation on hover */
 }
+
+/* Click (active) effect */
+.qzbtn:active {
+    animation-name: clickAnimation; /* Apply the click animation */
+    animation-duration: 0.5s; /* Set the duration of the animation */
+}
+
+/* Define the click animation */
+@keyframes clickAnimation {
+    from {
+        transform: scale(1); /* Initial scale */
+    }
+    to {
+        transform: scale(0.9); /* Scale down on click */
+    }
+}
+
+
 
 /* Media query for smaller screens */
 @media (max-width: 800px) {
@@ -290,16 +324,42 @@ body {
 	font-size: 25px;
 }
 
-.pagetitle{
-	font-family: "kafeine";
-	font-size: 80px;
-	color: #212A3E;
+.pagetitle {
+    font-family: "kafeine";
+    font-size: 80px;
+    color: #212A3E;
 }
+
+.pagetitle2 {
+    font-family: "ls2";
+    font-size: 20px;
+    color: #ff3232;
+}
+
+.pagetitle3 {
+    font-family: "ls6";
+	font-style: italic;
+    font-size: 15px;
+    color: #ff3232;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 
 @media (max-width: 800px) {
     .pagetitle {
 		text-align: center;
         font-size: 70px;
+    }
+
+	.pagetitle2 {
+		text-align: center;
+        font-size: 20px;
+    }
+
+	.pagetitle3 {
+		text-align: center;
+        font-size: 15px;
     }
 }
 

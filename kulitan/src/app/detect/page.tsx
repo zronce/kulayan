@@ -6,8 +6,11 @@ import * as tmImage from "@teachablemachine/image";
 import NextImage from 'next/image';
 import Link from "next/link";
 import { BackArrow } from "@/shared/icons/BackArrow";
+import useSound from 'use-sound';
 
 export default function ObjectDetection() {
+  const soundFile135 = '/audio/click2.mp3';
+	const [play135] = useSound(soundFile135);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [modelLoaded, setModelLoaded] = useState<boolean>(false);
@@ -179,7 +182,7 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
     <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
       GLYPHS DETECTION
     </div>
-					<Link href="/" className="absolute left-5 z-10">
+					<Link onClick={play135} href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
 
@@ -227,6 +230,8 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
 
 
 <div className="fullcont">
+<br></br>
+<p className="pagetitle3">Note: The dataset model is still in the works, as a result, there may be fluctuations in accuracy.  </p>
 <br></br>
     <label className="camera-toggle-switch">
       <input type="checkbox" checked={cameraOn} onChange={toggleCamera} />

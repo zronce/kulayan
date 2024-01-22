@@ -21,7 +21,7 @@ export default function Learn() {
              <div className="w-full flex flex-col gap-6">
 				<div className="w-full flex justify-center items-center relative h-[49px]">
 					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
-					<Link href="/" className="absolute left-5 z-10">
+					<Link onClick={play135} href="/" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
 					<div id="top3" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
@@ -134,7 +134,7 @@ export default function Learn() {
 			<br></br>
 			<p className="htrcontents">Zhang Xie (張燮). (1617). Dong Xi Yang Gao [東西洋考] (A study of the Eastern and Western Oceans). <Link className="linked" href="http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html" target="_blank">http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html</Link>, Volume (分冊) 13:9.</p>
 			<br></br>
-			<span className="spantxt2">Researched and Compiled By:</span>
+			<span className="spantxt2">Compiled By:</span>
 			<span className="spantxt3">Mr. Keith Liam Manaloto</span>
 			
 			</div>

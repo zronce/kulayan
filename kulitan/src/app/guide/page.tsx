@@ -48,7 +48,7 @@ export default function Guide() {
             <div className="w-full flex flex-col gap-6">
 				<div className="w-full flex justify-center items-center relative h-[49px]">
 					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
-					<Link href="./learn" className="absolute left-5 z-10">
+					<Link onClick={play135} href="./learn" className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
 					<div id="top" className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
