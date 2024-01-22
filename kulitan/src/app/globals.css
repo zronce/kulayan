@@ -447,12 +447,20 @@ body {
   }
   
   .file-upload{
+	width: 400px;
 	background-color: #001C30;
 	border: 5px solid #001C30;
 	border-radius: 5px;
 	padding: 2px;
 	font-size: 15px;
   }
+
+  @media (max-width: 800px) {
+    .file-upload {
+        font-size: 15px;
+		width: 300px;
+}
+}
 
   .file-upload::-webkit-file-upload-button {
     background-image: linear-gradient(55deg, indigo, rgb(117, 37, 197), violet, indigo, rgb(22, 145, 186));
@@ -501,7 +509,6 @@ body {
 @media (max-width: 800px) {
     .qcsshard h2 {
         font-size: 120px;
-		
 }
 }
 
