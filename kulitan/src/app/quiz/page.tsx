@@ -50,7 +50,7 @@ export default function Quiz() {
   const handleAnswerClick = (selectedAnswer: string) => {
     const currentQuestion = questions[currentQuestionIndex];
 
-    // Check if the question has already been answered
+    
     if (userAnswers.some(answer => answer.questionId === currentQuestion.id)) {
       return;
     }
@@ -67,9 +67,9 @@ export default function Quiz() {
     // Update the score and store the user's answer
     if (isCorrect) {
       setScore(score + 1);
-      play136(); // Play correct sound
+      play136(); 
     } else {
-      play137(); // Play wrong sound
+      play137(); 
       vibrateOnWrongAnswer();
     }
     // Store the user's answer
@@ -90,13 +90,13 @@ export default function Quiz() {
       setQuizCompleted(true);
     }
   
-    // Clear the selected answer and hide the correct answer when moving to the next question
+    
     setSelectedAnswer(null);
     setShowCorrectAnswer(false);
   };
   
   const handleRestartButtonClick = () => {
-    // Reset quiz state
+    
     setCurrentQuestionIndex(0);
     setCurrentProgress(0);
     setUserAnswers([]);
@@ -145,7 +145,7 @@ export default function Quiz() {
                   key={index}
                   onClick={() => {
                     handleAnswerClick(option);
-                    play135(); // Call the play135 function here
+                    play135(); 
                   }}
                   className={`button-choice ${selectedAnswer === option ? 'clicked' : ''} ${userAnswers.some(answer => answer.questionId === currentQuestion.id) ? 'disabled' : ''}`}
                 >

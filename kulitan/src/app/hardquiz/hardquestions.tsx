@@ -139,6 +139,18 @@ const questions = {
     options: ['Kun', 'Kon', 'Ke', 'Kún' ],
     correctAnswer: 'Kún',
   },
+  {
+    id: 24,
+    question: 'kuun',
+    options: ['Kun', 'Kon', 'Ke', 'Kún' ],
+    correctAnswer: 'Kún',
+  },
+  {
+    id: 25,
+    question: 'kuun',
+    options: ['Kun', 'Kon', 'Ke', 'Kún' ],
+    correctAnswer: 'Kún',
+  },
   ]
   };
   

@@ -16,6 +16,7 @@ export default function ObjectDetection() {
     className: string;
     probability: number;
   }> | null>(null);
+  const [cameraOn, setCameraOn] = useState<boolean>(true);
   
   
   useEffect(() => {
@@ -49,12 +50,18 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
         const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
         video.srcObject = stream;
 
+        if (cameraOn) {
+          video.srcObject = stream;
+        } else {
+          stream.getTracks().forEach((track) => track.stop());
+        }
+
         video.onloadedmetadata = () => {
           video.play();
           resizeCanvas(video, canvas);
 
           const detectFrame = async () => {
-            if (videoRef.current) {
+            if (videoRef.current && cameraOn) {
               const predictions = await model.predict(videoRef.current);
               ctx.clearRect(0, 0, canvas.width, canvas.height);
         
@@ -84,10 +91,10 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               const accuracy = maxPrediction.probability * 100;
               if (accuracy >= 80) {
                 ctx.fillStyle = "green";
-                ctx.fillText("Great", 25, 80);
+                ctx.fillText("Kulitan Detected", 25, 80);
               } else if (accuracy >= 60) {
                 ctx.fillStyle = "yellow";
-                ctx.fillText("Fair", 25, 80);
+                ctx.fillText("Rewrite", 25, 80);
               } else {
                 ctx.fillStyle = "red";
                 ctx.fillText("Can't Recognize", 25, 80);
@@ -105,6 +112,10 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
     }
   }
 };
+const toggleCamera = () => {
+  setCameraOn((prevCameraOn) => !prevCameraOn);
+};
+
 
 const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
   const file = event.target.files?.[0];
@@ -172,24 +183,24 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
 						<BackArrow />
 					</Link>
 
-  <div className="object-detection-wrapper">
+
+<div className="object-detection-wrapper">
       <br />
       <br></br>
       <br></br>
-
       <input
-  type="file"
-  className="file-upload"
-  accept="image/png, image/jpeg"  // Restrict accepted file types
-  onChange={handleFileUpload}
-/>
+        type="file"
+        className="file-upload"
+        accept="image/png, image/jpeg"  // Restrict accepted file types
+        onChange={handleFileUpload}
+      />
 
 <br></br>
 {previewUrl || predictionResult ? (
   <button className="delete-button" onClick={() => {
     setPreviewUrl(null);
     setPredictionResult(null);
-  }}>Delete</button>
+  }}>Clear</button>
 ) : null}
 
 {/* Display the preview image */}
@@ -211,18 +222,25 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
     </div>
   </div>
 )}
+<br></br>
 
 
 
+<div className="fullcont">
+<br></br>
+    <label className="camera-toggle-switch">
+      <input type="checkbox" checked={cameraOn} onChange={toggleCamera} />
+      <span className="slider"></span>
+      <span className="toggle-label">{cameraOn}</span>
+    </label>
       {modelLoaded ? (
         // Content to render when modelLoaded is true
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
           <br></br>
-          <h1 className="Label1">For better results use black marker and white paper.  </h1>
+          <h1 className="Label1">For better results use black marker and white paper.</h1>
         </div>
-        
       ) : (
         // Default loading content
         <div className="loading-bar">
@@ -230,9 +248,14 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
           <div className="loading-spinner"></div>
         </div>
       )}
+       <br></br>
     </div>
     </div>
+    
     </div>
+    
+  </div>
+    
   );
 } 
 

@@ -133,6 +133,10 @@ export default function Learn() {
 			<p className="htrcontents">Wade, Geoff. [tr.] (2005) Southeast Asia in the Ming Shi-lu: an open access resource. Singapore: Asia Research Institute and the Singapore E-Press, National University of Singapore: <Link className="linked" href="http://epress.nus.edu.sg/msl/place/1062" target="_blank">National University of Singapore</Link>.</p>
 			<br></br>
 			<p className="htrcontents">Zhang Xie (張燮). (1617). Dong Xi Yang Gao [東西洋考] (A study of the Eastern and Western Oceans). <Link className="linked" href="http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html" target="_blank">http://www.lib.kobe-u.ac.jp/directory/sumita/5A-161/index.html</Link>, Volume (分冊) 13:9.</p>
+			<br></br>
+			<span className="spantxt2">Researched and Compiled By:</span>
+			<span className="spantxt3">Mr. Keith Liam Manaloto</span>
+			
 			</div>
 		
 		</div>

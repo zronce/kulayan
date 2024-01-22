@@ -415,6 +415,10 @@ export default function Guide() {
 			<Image className="historypng" src={History37} alt="history37"></Image>
 			<p className="htrcontents">Table 6: Terminating the inherent vowel sound &#39;A&#39;</p>
 			</div>
+
+
+
+
 			<div className="bttcont">
 				<a onClick={play135} className="btt" href="#top">BACK TO TOP</a>
 			</div>

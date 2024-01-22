@@ -112,8 +112,8 @@ export default function Quiz() {
 
     return (
       <div className="">
-        <div className="qcss">
-          <h2 className="font-kulitan text-black">{currentQuestion.question}</h2>
+        <div className="qcsshard" >
+          <h2 className="font-kulitan text-black vertical-text">{currentQuestion.question}</h2>
         </div>
         <br></br>
 

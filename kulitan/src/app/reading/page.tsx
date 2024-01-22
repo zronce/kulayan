@@ -296,16 +296,18 @@ export default function Reading() {
 					
 				</div>
 				<br></br>
-				<div className="quiz">
+			<div className="quiz">
   				<Link href="levels">
     			<button onClick={play134} className="font-kafeine qzbtn">
       					Start Test
     			</button>
   				</Link>
-				</div>
+			</div>
 
 			<br></br>
-
+			<br></br>
+			<br></br>
+			<h2 className="titlebtns">Tap the buttons for sounds</h2>
 			<h1 className="title" id="indu">INDUNG SULAT</h1>
 			<div className="container"> 
 				<button onClick={play1} id="btn1" className="styled-button"><div className="font-kulitan">Ga</div>Ga</button>

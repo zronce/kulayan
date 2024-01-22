@@ -16,7 +16,7 @@ export default function Home() {
 		<main className="min-h-screen min-w-screen flex flex-col items-start justify-start p-9 max-miniPhone:p-5 gap-12">
 			<div className="w-full">
 					<p className="pagetitle">KULAYAN</p>
-					
+					<span></span>
 			</div>
 			<div className=" w-full flex flex-col gap-5">
 				<div onClick={play135} className="card1">
@@ -132,8 +132,8 @@ export default function Home() {
 				</div>
 			</div>
 			<footer className="w-full flex items-center justify-center">
-				<span className="font-kulitan text-dark opacity-100 font-bold text-[18px]">
-					ka pang pang an
+				<span className="font-ls2 text-dark opacity-100 font-bold text-[18px]">
+					
 				</span>
 			</footer>
 		</main>

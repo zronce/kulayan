@@ -188,8 +188,8 @@ export default function Quiz() {
           renderQuestion()
         ) : (
 
-          <div className="quizcomplete">
-          <p className="donetitle">Quiz completed!</p>
+        <div className="quizcomplete">
+          <p className="donetitle">Test Completed!</p>
           <p className="donescore">Your score: {score}/{questions.length}</p>
       
           
@@ -211,13 +211,12 @@ export default function Quiz() {
           >
               START OVER
           </button>
-          
+          <br></br>
+          <br></br>
           <Link href="stage2">
               <button onClick={play135} className="stage2btn">NEXT</button>
             </Link>
       </div>
-      
-
         )}
       </div>
     </main>
