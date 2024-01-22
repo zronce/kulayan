@@ -211,8 +211,6 @@ export default function Quiz() {
           >
               START OVER
           </button>
-          <br></br>
-          <br></br>
           <Link href="stage2">
               <button onClick={play135} className="stage2btn">NEXT</button>
             </Link>
