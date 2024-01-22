@@ -8,10 +8,20 @@ import DetectLogo from "@/shared/images/detect.png";
 import Info from "@/shared/images/info.webp";
 import Dev from "@/shared/images/dev.png";
 import useSound from 'use-sound';
+import { useLayoutEffect } from "react";
 
 export default function Home() {
 	const soundFile135 = '/audio/click2.mp3';
 	const [play135] = useSound(soundFile135);
+
+	useLayoutEffect(()=>{
+    const localStorageValue = localStorage.getItem('userData');
+		if (!!localStorageValue) return
+		localStorage.setItem('userData', JSON.stringify({
+			glyphsLearned: []
+		}));
+	}, [])
+
 	return (
 		<main className="min-h-screen min-w-screen flex flex-col items-start justify-start p-9 max-miniPhone:p-5 gap-12">
 			<div className="w-full">
