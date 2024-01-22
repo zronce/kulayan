@@ -91,6 +91,31 @@ const KulitanKeyboard = (props: Props) => {
 		}
 	};
 
+	const addSpaceAction = (e: any) =>
+	{
+		setIsReadOnly(true);
+		if (textareaRef.current)
+		{
+			const cursorPosition = textareaRef.current.selectionStart;
+			const currentText = textareaRef.current.value;
+
+			const addWhiteSpace =
+				currentText.slice(0, cursorPosition) +
+				" " + currentText.slice(cursorPosition);
+
+			textareaRef.current.value = addWhiteSpace;
+			setTimeout(() =>
+			{
+				textareaRef.current.setSelectionRange(
+					cursorPosition + 1,
+					cursorPosition + 1,
+				);
+			}, 1);
+
+			setKulitanWords(denormalizeWords(addWhiteSpace));
+		}
+	};
+
 	const newLineAction = (e: any) => {
 		setIsReadOnly(true);
 		if (textareaRef.current) {
@@ -244,13 +269,14 @@ const KulitanKeyboard = (props: Props) => {
 					<div className="flex flex-wrap justify-center items-start gap-2 pl-2 min-miniPhone:h-[275px]">
 						{children}
 					</div>
-					<div className="w-[74px] h-[275px] pr-2 z-50 flex flex-col gap-2">
+					<div className="w-[74px] h-[330px] pr-2 z-50 flex flex-col gap-2">
 						<KulitanKeyAction action="delete" keyFunction={deleteAction} />
 						<KulitanKeyAction action="add" keyFunction={addAction} />
 						<KulitanKeyAction
 							action="backSpace"
 							keyFunction={backSpaceAction}
 						/>
+						<KulitanKeyAction action="space" keyFunction={addSpaceAction} />
 						<KulitanKeyAction action="newLine" keyFunction={newLineAction} />
 					</div>
 				</div>

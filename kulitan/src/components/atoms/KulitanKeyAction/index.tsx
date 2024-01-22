@@ -4,6 +4,7 @@ import { BackSpace } from "@/shared/icons/BackSpace";
 import { DeleteAll } from "@/shared/icons/DeleteAll";
 import { NewLine } from "@/shared/icons/NewLine";
 import React, { useEffect, useState } from "react";
+import { Space } from "@/shared/icons/Space";
 
 type Props = {
 	action: string;
@@ -56,7 +57,8 @@ const KulitanKeyAction = (props: Props) => {
 		delete: <DeleteAll isHovered={isKeyClicked} />,
 		add: <Add isHovered={isKeyClicked} />,
 		backSpace: <BackSpace isHovered={isKeyClicked} />,
-		newLine: <NewLine isHovered={isKeyClicked} />,
+		newLine: <NewLine isHovered={isKeyClicked} />,		
+		space: <Space isHovered={isKeyClicked} />,
 	};
 
 	return (
