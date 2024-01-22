@@ -69,7 +69,11 @@ export default function Writing()
 			<div className="w-full flex flex-col gap-6 items-center">
 				<div className="w-full flex justify-center items-center relative h-[49px]">
 					<div className="bg-black w-full absolute h-full z-0 opacity-30"></div>
-					<Link onClick={play135} href="/" className="absolute left-5 z-10">
+					<Link href={isWritingBoardOpen ? "#" : "/"} onClick={() =>
+					{
+						play135()
+						isWritingBoardOpen && setIsWritingBoardOpen(false);
+					}} className="absolute left-5 z-10">
 						<BackArrow />
 					</Link>
 					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
@@ -78,7 +82,7 @@ export default function Writing()
 				</div>
 
 				{!isWritingBoardOpen && <div className="w-full px-5 flex-col gap-2">
-					<h1 className="font-bold mb-2">Glyphs Learned</h1>
+					<h1 className="font-bold mb-2 text-slate-900">Glyphs Learned</h1>
 					<div className="flex relative">
 						<h1 className={`font-bold bg-[#001C30] absolute z-20 top-0 left-0 rounded-full`} style={{width: `${percentageWidth}%`}}>&#x200B;</h1>
 						<h1 className="font-bold bg-slate-300 text-end px-2 text-[#007A5A] rounded-full w-[100%]">&#x200B;</h1>
@@ -87,7 +91,7 @@ export default function Writing()
 				</div>}
 
 				{!isWritingBoardOpen && <div className="w-full px-5 flex-col gap-2">
-					<h1 className="font-bold mb-2">Top 3 Best Scores</h1>
+					<h1 className="font-bold mb-2 text-slate-900">Top 3 Best Scores</h1>
 					{glyphsLearned?.length < 5
 						? <h1 className="w-full text-center bg-slate-500 p-5 rounded-md">You have to learn at least 5 Glyphs to unlock this feature</h1>
 						: <div className="w-full grid grid-cols-3 gap-2 pb-10">
@@ -117,7 +121,7 @@ export default function Writing()
 
 				</div>}
 
-				{!isWritingBoardOpen && <h1 className="w-full px-5 font-bold">Learn More Glyphs</h1>}
+				{!isWritingBoardOpen && <h1 className="w-full px-5 font-bold text-slate-900">Learn More Glyphs</h1>}
 				{isWritingBoardOpen
 					? <KulitanGlyphs
 						selectedGlyphsId={selectedGlyphsId}

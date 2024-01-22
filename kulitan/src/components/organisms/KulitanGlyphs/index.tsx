@@ -130,7 +130,7 @@ export default function KulitanGlyphs({
           onClick={handleClick}
           onMouseDown={() => setOnClick('undo')}
           className={`
-          py-1 px-3 rounded-md font-medium text-slate-100
+          py-1 px-3 rounded-md font-medium text-slate-900 
           ${onClick === 'undo' ? 'bg-gray-600 border border-gray-600' : 'border border-slate-900'}
         `}
           value="undo"
