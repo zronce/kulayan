@@ -178,6 +178,7 @@ export default function Transcribe() {
     </div>
 				</div>
 				<div className="flex gap-3 flex-wrap justify-center items-start px-5">
+					{/* Word box - TextArea*/}
 					<TransparentCard className="z-10">
 						<textarea
 							ref={textareaRef}
@@ -191,6 +192,8 @@ export default function Transcribe() {
 							readOnly={isReadOnly}
 						/>
 					</TransparentCard>
+
+					{/* Kulitan box - Div */}
 					<TransparentCard className="flex justify-end items-end">
 						<div
 							className="
@@ -231,6 +234,8 @@ export default function Transcribe() {
 					</TransparentCard>
 				</div>
 			</div>
+
+			{/* Keyboard  */}
 			<div className="sticky left-0 bottom-0 h-full w-full">
 				<div className="absolute left-0 bottom-0 h-full w-full z-0">
 					<div
