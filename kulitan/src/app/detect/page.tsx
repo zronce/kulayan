@@ -180,7 +180,7 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
     <div className="w-full flex flex-col gap-6">
 				<div className="w-full flex justify-center items-center relative h-[50px]">
     <div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
-      GLYPHS DETECTION
+      GLYPHS RECOGNITION
     </div>
 					<Link onClick={play135} href="/" className="absolute left-5 z-10">
 						<BackArrow />

@@ -34,7 +34,7 @@ export default function Home() {
 					link="detect"
 					buttonTitle={
 						<>
-							<span className="font-kafeine ">Glyphs Detection</span> 
+							<span className="font-kafeine ">Glyphs Recognition</span> 
 						</>
 					}
 					

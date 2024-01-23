@@ -42,8 +42,8 @@ export default function About() {
 				<h3>Adrian Kyle Batac</h3>
 				<h5>Developer</h5>
 				<div className="icons">
-					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
-					<a href="mailto:batac.ak.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
+					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ color:'white', fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
+					<a href="mailto:batac.ak.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ color:'white', fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
 				</div>
 			</div>
 
@@ -53,8 +53,8 @@ export default function About() {
 				<h5>Documenter</h5>
 				<div className="icons">
 					
-					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
-					<a href="mailto:ruizkc.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
+					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{color:'white', fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
+					<a href="mailto:ruizkc.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{color:'white', fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
 				</div>
 			</div>
 
@@ -64,8 +64,8 @@ export default function About() {
 				<h5>Documenter</h5>
 				<div className="icons">
 					
-					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
-					<a href="mailto:buac.fk.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
+					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{color:'white', fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
+					<a href="mailto:buac.fk.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{color:'white', fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
 				</div>
 			</div>
 
@@ -74,8 +74,8 @@ export default function About() {
 				<h3>John Lloyd Magpulong</h3>
 				<h5>Documenter</h5>
 				<div className="icons">
-					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{ fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
-					<a href="mailto:magpulong.jl.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{ fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
+					<a href="" target="_blank"><FontAwesomeIcon icon={faFacebook} style={{color:'white', fontSize: '30px', margin: '10px 10px 0px 0px' }}/></a>
+					<a href="mailto:magpulong.jl.bscs@gmail.com"><FontAwesomeIcon icon={faEnvelope} style={{color:'white', fontSize: '30px',margin: '10px 10px 0px 10px' }}/></a>
 				</div>
 			</div>
 
