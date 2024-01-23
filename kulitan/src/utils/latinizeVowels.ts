@@ -1,6 +1,6 @@
 export default function latinizeVowels(text: any) {
 	return text?.replace(
-		/(aa|oo|uu|ii|ai|au|nganga|\b[bcdfghjklmnpqrstvwxyz]*a[^aeiou\s]a\b)/g,
+		/(aa|oo|uu|ii|ai|au|\b[bcdfghjklmnpqrstvwxyz]*a[bcdfghjklmnpqrstvwxyz]{2}a|\b[a-z]*a(?:ng)?a\b)/g,
 		function (match: any) {
 			const replacements: any = {
 				aa: "á ",
@@ -12,7 +12,7 @@ export default function latinizeVowels(text: any) {
 				nganga: "ngang ",
 			};
 			const replaced = match.replace(/a\b/, " ");
-			
+
 			return replacements[match]
 				? replacements[match] || match
 				: replaced || match;
