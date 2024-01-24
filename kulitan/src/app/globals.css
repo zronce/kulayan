@@ -83,6 +83,11 @@
 	src: url("../../public/fonts/LS8.otf");
 }
 
+@font-face {
+	font-family: "cc";
+	src: url("../../public/fonts/cc.ttf");
+}
+
 :root {
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
@@ -326,8 +331,8 @@ body {
 }
 
 .pagetitle {
-    font-family: "kafeine";
-    font-size: 80px;
+    font-family: "cc";
+    font-size: 100px;
     color: #212A3E;
 }
 
@@ -346,6 +351,21 @@ body {
 	padding-right: 20px;
 }
 
+.logocont {
+	background-color: #000f17;
+	border-radius: 10px;
+	
+}
+
+
+
+.mainlogo{
+	padding: 10px;
+	margin: auto;
+	width: 600px;
+	border-radius: 50px;
+	
+}
 
 @media (max-width: 800px) {
     .pagetitle {

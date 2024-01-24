@@ -9,6 +9,7 @@ import Info from "@/shared/images/info.webp";
 import Dev from "@/shared/images/dev.png";
 import useSound from 'use-sound';
 import { useLayoutEffect } from "react";
+import Logo from "@/shared/images/logo.jpg";
 
 export default function Home() {
 	const soundFile135 = '/audio/click2.mp3';
@@ -25,8 +26,9 @@ export default function Home() {
 	return (
 		<main className="min-h-screen min-w-screen flex flex-col items-start justify-start p-9 max-miniPhone:p-5 gap-12">
 			<div className="w-full">
-					<p className="pagetitle">KULAYAN</p>
-					<p className="pagetitle2">BETA ver.</p>
+				<div className="logocont">
+					<Image className="mainlogo" src={Logo} alt="logo"></Image>
+					</div>
 			</div>
 			<div className=" w-full flex flex-col gap-5">
 				<div onClick={play135} className="card1">

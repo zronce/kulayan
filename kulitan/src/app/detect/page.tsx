@@ -231,10 +231,9 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
 
 <div className="fullcont">
 <br></br>
-<p className="pagetitle3">Note: The dataset model is still in the works, as a result, there may be fluctuations in accuracy.  </p>
-<br></br>
+<p className="pagetitle3"></p>
     <label className="camera-toggle-switch">
-      <input type="checkbox" checked={cameraOn} onChange={toggleCamera} />
+      <input type="checkbox" placeholder="Switch Camera On or Off" checked={cameraOn} onChange={toggleCamera} />
       <span className="slider"></span>
       <span className="toggle-label">{cameraOn}</span>
     </label>
@@ -243,8 +242,6 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
         <div className="video-canvas-wrapper">
           <video ref={videoRef} autoPlay playsInline muted className="detection-video" />
           <canvas ref={canvasRef} className="detection-canvas" />
-          <br></br>
-          <h1 className="Label1">For better results use black marker and white paper.</h1>
         </div>
       ) : (
         // Default loading content
