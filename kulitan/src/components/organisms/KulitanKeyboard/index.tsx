@@ -38,6 +38,7 @@ const KulitanKeyboard = (props: Props) => {
 	const addAction = (e: any) => {
 		setIsReadOnly(true);
 		if (isAddActionClicked) return;
+
 		setIsAddActionClicked(true);
 		if (textareaRef.current) {
 			const cursorPosition = textareaRef.current.selectionStart;
@@ -49,15 +50,13 @@ const KulitanKeyboard = (props: Props) => {
 				a: "a",
 				u: "u",
 				i: "i",
+				o: "o",
 			};
 
 			const newLeftString =
 				lastChar in characterMap
-					? leftString.slice(0, cursorPosition - 1) +
-					  characterMap[lastChar] +
-					  " "
+					? currentText.at(-1) === ' ' ? leftString.slice(0, cursorPosition - 1) + lastChar + " " : leftString.slice(0, cursorPosition) + lastChar + " "
 					: leftString;
-
 			const newText = newLeftString + currentText.slice(cursorPosition);
 
 			const newPosition = newLeftString.length;
