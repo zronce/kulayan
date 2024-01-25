@@ -3,10 +3,10 @@ export default function latinizeVowels(text: any) {
 		/(aa|oo|uu|ii|ai|au|nganga|ia|ya i|o a|oa|wa i|ngaa|inga|\b[bcdfghjklmnpqrstvwxyz]*u[^aeiou\s]a\b|\b[bcdfghjklmnpqrstvwxyz]*o[^aeiou\s]a\b|\b[bcdfghjklmnpqrstvwxyz]*i[^aeiou\s]a\b|\b[bcdfghjklmnpqrstvwxyz]*a[^aeiou\s]a\b|\b[a-z]*á(?:ng)?a\b|\b[a-z]*ó(?:ng)?a\b|\b[a-z]*ú(?:ng)?a\b|\b[a-z]*í(?:ng)?a\b|\b[a-z]*a(?:ng)?a\b|\b[bcdfghjklmnpqrstvwxyz]*aa\b)/g,
 		function (match: any) {
 			const replacements: any = {
-				aa: "á ",
-				oo: "ó ",
-				uu: "ú ",
-				ii: "í ",
+				aa: "á",
+				oo: "ó",
+				uu: "ú",
+				ii: "í",
 				ai: "e ",
 				au: "o ",
 				ia: "ya ",

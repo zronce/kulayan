@@ -30,14 +30,6 @@ const KulitanContextProvider = ({ children }: any) => {
 	const [isKeyboardActive, setIsKeyboardActive] = useState(true);
 	const [isReadOnly, setIsReadOnly] = useState(true);
 	const [scrollY, setScrollY] = useState(0);
-	
-	// useEffect(() => {
-	// 	window.addEventListener("scroll", () => setScrollY(window.scrollY));
-
-	// 	return () => {
-	// 		window.removeEventListener("scroll", () => setScrollY(window.scrollY));
-	// 	};
-	// }, []);
 
 	function useTransformedState(initialValue: any) {
 		const [transformedValue, setTransformedValue] = useState(initialValue);
@@ -65,15 +57,21 @@ const KulitanContextProvider = ({ children }: any) => {
 		}, []);
 
 		useEffect(() => {
-			setKulitanWords(
-				denormalizeWords(latinizeVowels(normalizedWords)).toLowerCase(),
-			);
+			setKulitanWords(normalizedWords);
 
-			// Position the cursor to the latest position
-			if (cursorPosition !== null) {
-				textAreaRef.current.setSelectionRange(cursorPosition, cursorPosition);
-			}
-		}, [transformedValue, cursorPosition]);
+			const timeInSeconds = 0.5
+			const timeoutId = setTimeout(() => {
+				setKulitanWords(
+					denormalizeWords(latinizeVowels(normalizedWords)).toLowerCase(),
+				);
+				
+				if (cursorPosition !== null) {
+					textAreaRef.current.setSelectionRange(cursorPosition, cursorPosition);
+				}
+			}, timeInSeconds * 1000);
+		
+			return () => clearTimeout(timeoutId);
+		}, [normalizedWords, cursorPosition]);
 
 		return [transformedValue, setTransformedValue];
 	}
