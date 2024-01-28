@@ -30,6 +30,7 @@ const KulitanContextProvider = ({ children }: any) => {
 	const [isKeyboardActive, setIsKeyboardActive] = useState(true);
 	const [isReadOnly, setIsReadOnly] = useState(true);
 	const [scrollY, setScrollY] = useState(0);
+	const [timeoutState, setTimeoutState] = useState<boolean>(false)
 
 	function useTransformedState(initialValue: any) {
 		const [transformedValue, setTransformedValue] = useState(initialValue);
@@ -57,9 +58,9 @@ const KulitanContextProvider = ({ children }: any) => {
 		}, []);
 
 		useEffect(() => {
-			setKulitanWords(normalizedWords);
+			// if (!timeoutState) setKulitanWords(normalizedWords);
 
-			const timeInSeconds = 2
+			const timeInSeconds = timeoutState ? 0 : 2
 			const timeoutId = setTimeout(() => {
 				setKulitanWords(
 					denormalizeWords(latinizeVowels(normalizedWords)).toLowerCase(),
@@ -70,6 +71,7 @@ const KulitanContextProvider = ({ children }: any) => {
 				}
 			}, timeInSeconds * 1000);
 		
+			if (timeoutState) setTimeoutState(false)
 			return () => clearTimeout(timeoutId);
 		}, [normalizedWords, cursorPosition]);
 
@@ -100,6 +102,7 @@ const KulitanContextProvider = ({ children }: any) => {
 				setIsReadOnly,
 				scrollY, 
 				setIsMobilePhone,
+				setTimeoutState
 			}}
 		>
 			{children}
