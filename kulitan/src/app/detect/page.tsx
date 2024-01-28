@@ -74,17 +74,32 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               );
         
               // Display the class with the highest probability
-              ctx.font = "25px ls2";
-              ctx.fillStyle = "red";
-              ctx.fillText(
-                `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
-                25,
-                50
-              );
+ctx.font = "20px ls2";
+
+// Set the background color for the highlighted area
+ctx.fillStyle = "white";
+
+// Determine the width and height of the text
+const textWidth = ctx.measureText(`${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`).width;
+const textHeight = 20; // Adjust as needed
+
+// Create a rectangle behind the text
+ctx.fillRect(25, 50 - textHeight, textWidth, textHeight + 5);
+
+// Set the text color
+ctx.fillStyle = "red";
+
+// Display the text
+ctx.fillText(
+  `${maxPrediction.className} (${Math.round(maxPrediction.probability * 100)}%)`,
+  25,
+  50
+);
         
               // Display "Not a Glyph" when the probability is below 40%
               if (maxPrediction.probability < 0.4) {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "white";
                 ctx.font = "25px ls2";
                 ctx.fillStyle = "red";
                 ctx.fillText("Not a Kulitan Glyph", 25, 50);
@@ -94,10 +109,10 @@ const detectObjects = async (model: tmImage.CustomMobileNet) => {
               const accuracy = maxPrediction.probability * 100;
               if (accuracy >= 80) {
                 ctx.fillStyle = "green";
-                ctx.fillText("Kulitan Detected", 25, 80);
+                ctx.fillText("", 25, 80);
               } else if (accuracy >= 60) {
                 ctx.fillStyle = "yellow";
-                ctx.fillText("Rewrite", 25, 80);
+                ctx.fillText("Try Again", 25, 80);
               } else {
                 ctx.fillStyle = "red";
                 ctx.fillText("Can't Recognize", 25, 80);
@@ -226,9 +241,6 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
   </div>
 )}
 <br></br>
-
-
-
 <div className="fullcont">
 <br></br>
 <p className="pagetitle3"></p>

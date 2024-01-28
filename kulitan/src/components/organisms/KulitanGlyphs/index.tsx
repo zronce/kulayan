@@ -135,25 +135,25 @@ export default function KulitanGlyphs({
         `}
           value="undo"
           suppressHydrationWarning={true}
-        >undo</button>
+        >Undo</button>
 
         <button
           onClick={handleClick}
           className={`
-          py-1 px-3 rounded-md font-medium text-slate-900
+          py-1 px-3 rounded-md font-medium white
           ${isGlyphsOn ? 'bg-green-600 border border-green-600' : 'border border-slate-900'}
         `}
           value="glyphs"
-        >glyphs</button>
+        >Glyphs</button>
 
         <button
           onClick={handleClick}
           className={`
-          py-1 px-3 rounded-md font-medium text-slate-900
+          py-1 px-3 rounded-md font-medium white
           ${isGuideOn ? 'bg-green-600 border border-green-600' : 'border border-slate-900'}
         `}
           value="guide"
-        >guide</button>
+        >Guide</button>
 
         <button
           onClick={(e) =>

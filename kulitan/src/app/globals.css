@@ -395,7 +395,7 @@ body {
 	position: relative;
 	margin: 20px; /* Adjust the margin value as needed */
 	background-color: #001C30;;
-	border: 10px solid #001C30;;
+	border: 5px solid #001C30;;
 	border-radius: 10px;
   }
 
@@ -492,7 +492,7 @@ body {
 
 @media (max-width: 800px) {
     .result-text {
-        font-size: 20px;
+        font-size: 15px;
     }
 }
 
@@ -1364,4 +1364,15 @@ body {
 	margin-right: auto;
 	font-family: "ls5";
 	color: #000f17;
+}
+
+.prediction-result{
+	margin: auto;
+	width: 600px;
+}
+
+@media(max-width: 800px){
+	.prediction-result{
+		width: 450px;
+	}
 }

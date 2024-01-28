@@ -59,7 +59,7 @@ const KulitanContextProvider = ({ children }: any) => {
 		useEffect(() => {
 			setKulitanWords(normalizedWords);
 
-			const timeInSeconds = 0.5
+			const timeInSeconds = 2
 			const timeoutId = setTimeout(() => {
 				setKulitanWords(
 					denormalizeWords(latinizeVowels(normalizedWords)).toLowerCase(),
