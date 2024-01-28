@@ -1376,3 +1376,31 @@ body {
 		width: 450px;
 	}
 }
+
+.direct1{
+	background-color: white;
+	color: #000f17;
+	font-family: "ls6";
+	font-size: 20px;
+	text-decoration: underline;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.direct2{
+	background-color: white;
+	color: #000f17;
+	font-family: "ls5";
+	font-size: 15px;
+	border-radius: 0px 0px 10px 10px;
+}
+
+@media(max-width: 800px){
+	.direct1{
+		margin: auto;
+		width: 350px;
+	}
+	.direct2{
+		margin: auto;
+		width: 350px;
+	}
+}

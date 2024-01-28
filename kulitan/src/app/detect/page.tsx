@@ -109,13 +109,13 @@ ctx.fillText(
               const accuracy = maxPrediction.probability * 100;
               if (accuracy >= 80) {
                 ctx.fillStyle = "green";
-                ctx.fillText("", 25, 80);
+                ctx.fillText("DETECTED", 25, 80);
               } else if (accuracy >= 60) {
                 ctx.fillStyle = "yellow";
-                ctx.fillText("Try Again", 25, 80);
+                ctx.fillText("TRY AGAIN", 25, 80);
               } else {
                 ctx.fillStyle = "red";
-                ctx.fillText("Can't Recognize", 25, 80);
+                ctx.fillText("CAN'T RECOGNIZE", 25, 80);
               }
         
               requestAnimationFrame(detectFrame);
@@ -264,6 +264,10 @@ const resizeCanvas = (video: HTMLVideoElement, canvas: HTMLCanvasElement) => {
       )}
        <br></br>
     </div>
+    <br></br>
+    <p className="direct1">Instructions</p>
+    <p className="direct2">Create clear glyphs on white paper with a black marker. Place them close to the camera for effective Glyph Recognition. </p>
+    <br></br>
     </div>
     
     </div>

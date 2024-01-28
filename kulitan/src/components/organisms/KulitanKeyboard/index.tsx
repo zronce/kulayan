@@ -28,11 +28,13 @@ const KulitanKeyboard = (props: Props) => {
 		setIsKeyboardActive,
 		isReadOnly,
 		setIsReadOnly,
+		setTimeoutState,
 	} = useKulitanContext();
 
 	const deleteAction = (e: any) => {
 		setIsReadOnly(true);
 		setKulitanWords("");
+		setTimeoutState(true)
 	};
 
 	const addAction = (e: any) => {
@@ -70,6 +72,7 @@ const KulitanKeyboard = (props: Props) => {
 
 	const backSpaceAction = (e: any) => {
 		setIsReadOnly(true);
+		setTimeoutState(true)
 		if (textareaRef.current) {
 			const cursorPosition = textareaRef.current.selectionStart;
 			const currentText = textareaRef.current.value;
@@ -93,6 +96,7 @@ const KulitanKeyboard = (props: Props) => {
 	const addSpaceAction = (e: any) =>
 	{
 		setIsReadOnly(true);
+		setTimeoutState(true)
 		if (textareaRef.current)
 		{
 			const cursorPosition = textareaRef.current.selectionStart;
@@ -117,6 +121,7 @@ const KulitanKeyboard = (props: Props) => {
 
 	const newLineAction = (e: any) => {
 		setIsReadOnly(true);
+		setTimeoutState(true)
 		if (textareaRef.current) {
 			const cursorPosition = textareaRef.current.selectionStart;
 			const currentText = textareaRef.current.value;
