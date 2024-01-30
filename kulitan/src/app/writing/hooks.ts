@@ -32,12 +32,20 @@ const useWritingHooks = () => {
 		localStorage.setItem('userData', JSON.stringify(JSON.stringify(newData)));
     setUserData(newData)
   }
+
+  const clearData = () => {
+		localStorage.setItem('userData', JSON.stringify({
+			glyphsLearned: []
+		}))
+    window.location.reload()
+  }
   
   return {
     writeData,
     getData,
     userData, 
-    setUserData
+    setUserData,
+    clearData
   }
 }
 

@@ -11,12 +11,13 @@ import useHooks from "@/components/organisms/KulitanGlyphs/hooks";
 import { useEffect, useState } from "react";
 import useWritingHooks from "./hooks";
 import useSound from "use-sound";
+import Clear from "@/shared/images/clear.png";
 
 export default function Writing()
 {
 	const [isWritingBoardOpen, setIsWritingBoardOpen] = useState<boolean>(false);
 	const [selectedGlyphsId, setSelectedGlyphsId] = useState<number>(0);
-	const { writeData, getData, userData, setUserData } = useWritingHooks();
+	const { clearData, userData, setUserData } = useWritingHooks();
 	const { topScore, glyphsLearned } = userData || '{}';
 	const { glyphsObject } = useHooks({ selectedGlyphsId, setSelectedGlyphsId, setUserData });
 	const [percentageWidth, setPercentageWidth] = useState<number>(0);
@@ -79,6 +80,19 @@ export default function Writing()
 					<div className="navbar bg-[#212A3E] w-full absolute h-full z-0 opacity-100 flex items-center justify-center">
 						PAMANIULAT
 					</div>
+					<Image
+						src={Clear.src}
+						alt="clear-data"
+						width={90}
+						height={90}
+						onClick={clearData}
+						style={{
+							height: 'auto',
+							width: 'auto',
+							position: 'absolute',
+							right: 20
+						}}
+					/>
 				</div>
 
 				{!isWritingBoardOpen && <div className="w-full px-5 flex-col gap-2">
