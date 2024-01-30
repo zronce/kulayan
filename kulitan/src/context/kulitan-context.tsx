@@ -21,7 +21,7 @@ const KulitanContextProvider = ({ children }: any) => {
 	const [cursorPosition, setCursorPosition] = useState(null);
 	const [textAreaRef, setTextAreaRef] = useState<any>(null);
 	const [kulitanWords, setKulitanWords] = useTransformedState(
-		"a tin ku pung sing sing <div>la wii wiing pam bang saa </div>",
+		"luid kayu ngan",
 	);
 	const textareaRef: any = useRef(null);
 	const [kulitanLibrary, setKulitanLibrary] =
